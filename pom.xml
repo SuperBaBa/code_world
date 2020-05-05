@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.jarvis</groupId>
+    <artifactId>code_world</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>elasticsearch_play</module>
+        <module>rocketmq_play</module>
+        <module>elasticjob_play</module>
+        <module>java8_play</module>
+    </modules>
+    <parent>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <groupId>org.springframework.boot</groupId>
+        <version>2.2.4.RELEASE</version>
+    </parent>
+    <properties>
+        <java.version>1.8</java.version>
+        <elasticsearch.version>7.4.0</elasticsearch.version>
+        <mysql.version>8.0.19</mysql.version>
+    </properties>
+    <organization>
+        <name>Jarvis Corporation</name>
+        <url>https://www.cecilia-wear.cn/</url>
+    </organization>
+    <dependencyManagement>
+        <dependencies>
+            <!--elasticsearch依赖版本管理-->
+            <dependency>
+                <groupId>org.elasticsearch</groupId>
+                <artifactId>elasticsearch</artifactId>
+                <version>${elasticsearch.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.elasticsearch.client</groupId>
+                <artifactId>elasticsearch-rest-high-level-client</artifactId>
+                <version>${elasticsearch.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>protobuf-java</artifactId>
+                        <groupId>com.google.protobuf</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <build>
+        <finalName>code_world</finalName>
+    </build>
+</project>
