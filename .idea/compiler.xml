@@ -10,6 +10,7 @@
         <module name="rocketmq_play" />
         <module name="elasticsearch_play" />
         <module name="elasticjob_play" />
+        <module name="ssl_play" />
       </profile>
     </annotationProcessing>
   </component>
@@ -20,6 +21,7 @@
       <module name="elasticsearch_play" options="-parameters" />
       <module name="java8_play" options="-parameters" />
       <module name="rocketmq_play" options="-parameters" />
+      <module name="ssl_play" options="-parameters" />
     </option>
   </component>
 </project>

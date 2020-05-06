@@ -1,4 +1,4 @@
-package org.jarvis.java.chainresponsibility;
+package org.jarvis.ssl;
 
 public class InfoLogger extends AbstractLogger {
     @Override

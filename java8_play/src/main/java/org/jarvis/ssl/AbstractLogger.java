@@ -1,4 +1,4 @@
-package org.jarvis.java.chainresponsibility;
+package org.jarvis.ssl;
 
 public abstract class AbstractLogger {
 

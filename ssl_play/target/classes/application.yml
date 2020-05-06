@@ -1,0 +1,22 @@
+#
+#server:
+#  port: 8443
+#  tomcat:
+#    max-threads: 800
+#    accept-count: 30000
+#    min-spare-threads: 20
+#    max-connections: 30000
+#  ssl:
+#    #    证书路径
+#    key-store: classpath:tomcat.key
+#    key-store-type: JKS
+#    key-alias: tomcat
+#    #    配置密码，就是在生成证书的时候输入的密码
+#    key-store-password: jiubugaosuni
+## 自定义参数
+#  conditionhttp2https=true
+#  http.port=80
+#
+#spring:
+#  application:
+#    name: user-service #服务名

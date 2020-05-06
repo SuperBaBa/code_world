@@ -13,7 +13,9 @@
         <module>rocketmq_play</module>
         <module>elasticjob_play</module>
         <module>java8_play</module>
+        <module>ssl_play</module>
     </modules>
+    <!--集成springboot的父pom-->
     <parent>
         <artifactId>spring-boot-starter-parent</artifactId>
         <groupId>org.springframework.boot</groupId>
@@ -57,4 +59,16 @@
     <build>
         <finalName>code_world</finalName>
     </build>
+    <repositories>
+        <repository>
+            <id>spring</id>
+            <url>https://maven.aliyun.com/repository/spring</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 </project>
