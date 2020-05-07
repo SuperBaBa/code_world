@@ -251,8 +251,17 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="636" y="253" width="647" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1587632182514" />
+<<<<<<< Updated upstream
     <state x="334" y="216" key="new project wizard" timestamp="1588775567725">
       <screen x="0" y="0" width="1920" height="1050" />
+=======
+    <state x="620" y="367" key="git4idea.ui.GitUnstashDialog" timestamp="1588813637846">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="620" y="367" key="git4idea.ui.GitUnstashDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588813637846" />
+    <state x="334" y="214" key="new project wizard" timestamp="1588215265136">
+      <screen x="0" y="0" width="1920" height="1040" />
+>>>>>>> Stashed changes
     </state>
     <state x="334" y="214" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1588215265136" />
     <state x="334" y="216" key="new project wizard/0.0.1920.1050@0.0.1920.1050" timestamp="1588775567725" />
