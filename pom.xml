@@ -8,30 +8,57 @@
     <artifactId>code_world</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <!--父POM管理的模块-->
     <modules>
         <module>elasticsearch_play</module>
         <module>rocketmq_play</module>
         <module>elasticjob_play</module>
         <module>java8_play</module>
         <module>ssl_play</module>
+        <module>hystrix_play</module>
+        <module>spring-cloud_play</module>
+        <module>spring-cloud_play/spring-cloud-producer</module>
     </modules>
-    <!--集成springboot的父pom-->
+    <!--继承springboot的父pom-->
     <parent>
         <artifactId>spring-boot-starter-parent</artifactId>
         <groupId>org.springframework.boot</groupId>
         <version>2.2.4.RELEASE</version>
     </parent>
+    <!--版本资源管理-->
     <properties>
         <java.version>1.8</java.version>
         <elasticsearch.version>7.4.0</elasticsearch.version>
         <mysql.version>8.0.19</mysql.version>
+        <spring-cloud-services.version>2.2.3.RELEASE</spring-cloud-services.version>
+        <spring-cloud.version>Hoxton.SR4</spring-cloud.version>
     </properties>
     <organization>
         <name>Jarvis Corporation</name>
         <url>https://www.cecilia-wear.cn/</url>
     </organization>
+
     <dependencyManagement>
         <dependencies>
+
+            <!--springCloud版本管理-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!--springCloud依赖-->
+            <dependency>
+                <groupId>io.pivotal.spring.cloud</groupId>
+                <artifactId>spring-cloud-services-dependencies</artifactId>
+                <version>${spring-cloud-services.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
             <!--elasticsearch依赖版本管理-->
             <dependency>
                 <groupId>org.elasticsearch</groupId>
@@ -57,9 +84,9 @@
         </dependencies>
     </dependencyManagement>
     <build>
-        <finalName>code_world</finalName>
+        <finalName>${artifactId}-${version}</finalName>
     </build>
-    <repositories>
+ <!--   <repositories>
         <repository>
             <id>spring</id>
             <url>https://maven.aliyun.com/repository/spring</url>
@@ -70,5 +97,5 @@
                 <enabled>true</enabled>
             </snapshots>
         </repository>
-    </repositories>
+    </repositories>-->
 </project>
