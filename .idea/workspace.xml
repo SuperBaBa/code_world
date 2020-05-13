@@ -1,7 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="ccd90041-2605-457a-94dc-3af0cc87377a" name="Default Changelist" comment="" />
+    <list default="true" id="5c53b454-805f-4b94-b179-b838fe9ce12a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java8_play/java8_play.iml" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,17 +51,25 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
         <option name="localRepository" value="E:\Environment_Variable\repository" />
-        <option name="mavenHome" value="E:/Environment_Variable/apache-maven-3.5.2" />
+        <option name="mavenHome" value="$PROJECT_DIR$/../../Environment_Variable/apache-maven-3.5.2" />
         <option name="userSettingsFile" value="E:\Environment_Variable\apache-maven-3.5.2\conf\settings-yto-new.xml" />
       </MavenGeneralSettings>
     </option>
     <option name="importingSettings">
       <MavenImportingSettings>
-        <option name="importAutomatically" value="true" />
+        <option name="jdkForImporter" value="1.8" />
         <option name="vmOptionsForImporter" value="-Xmx768m" />
       </MavenImportingSettings>
     </option>
@@ -46,17 +77,17 @@
   <component name="ProjectId" id="1aw1yRlz2urd0OnGq2WoQZLfQi5" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.5574713" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -91,7 +122,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ccd90041-2605-457a-94dc-3af0cc87377a" name="Default Changelist" comment="" />
+      <changelist id="5c53b454-805f-4b94-b179-b838fe9ce12a" name="Default Changelist" comment="" />
       <created>1587632095741</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -101,11 +132,25 @@
       <workItem from="1587634203454" duration="1990000" />
       <workItem from="1588215192961" duration="5877000" />
       <workItem from="1588586070701" duration="589000" />
+      <workItem from="1589367536074" duration="412000" />
+      <workItem from="1589368034573" duration="964000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Project_Structure" timestamp="1588215992355">
@@ -116,10 +161,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1588227457104" />
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1587634229621">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="740" y="277" key="FileChooserDialogImpl" timestamp="1589374174847">
+      <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1587634229621" />
+    <state x="740" y="277" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1589374174847" />
     <state width="1877" height="338" key="GridCell.Tab.0.bottom" timestamp="1588229076595">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -152,10 +198,15 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="338" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588229076595" />
-    <state x="461" y="161" key="SettingsEditor" timestamp="1587634264705">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="461" y="163" key="SettingsEditor" timestamp="1589374190135">
+      <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="461" y="161" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1587634264705" />
+    <state x="461" y="163" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1589374190135" />
+    <state x="753" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589363406075">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="753" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1050@0.0.1920.1050" timestamp="1589363406075" />
     <state x="636" y="253" width="647" height="534" key="find.popup" timestamp="1587632182514">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -164,6 +215,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="334" y="214" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1588215265136" />
+    <state x="721" y="392" width="618" height="282" key="org.intellij.images.editor.actions.BackgroundImageDialog" timestamp="1589374188824">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="721" y="392" width="618" height="282" key="org.intellij.images.editor.actions.BackgroundImageDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1589374188824" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1588229071780">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
