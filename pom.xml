@@ -14,10 +14,13 @@
         <module>rocketmq_play</module>
         <module>elasticjob_play</module>
         <module>java8_play</module>
+
         <module>ssl_play</module>
         <module>hystrix_play</module>
         <module>spring-cloud_play</module>
-        <module>spring-cloud_play/spring-cloud-producer</module>
+        <module>spring-cloud_play</module>
+
+
     </modules>
     <!--继承springboot的父pom-->
     <parent>
