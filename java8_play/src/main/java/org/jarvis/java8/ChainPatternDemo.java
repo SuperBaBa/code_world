@@ -1,4 +1,4 @@
-package org.jarvis.ssl;
+package org.jarvis.java8;
 
 public class ChainPatternDemo {
     private static AbstractLogger getChainOfLoggers() {
@@ -14,6 +14,7 @@ public class ChainPatternDemo {
     }
 
     public static void main(String[] args) {
+        //责任链调用
         AbstractLogger loggerChain = getChainOfLoggers();
 
         loggerChain.logMessage(AbstractLogger.INFO, "This is an information.第一次调用，只命中INFO");

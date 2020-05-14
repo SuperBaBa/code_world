@@ -1,4 +1,4 @@
-package org.jarvis.ssl;
+package org.jarvis.java8;
 
 public abstract class AbstractLogger {
 
