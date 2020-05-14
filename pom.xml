@@ -13,6 +13,7 @@
         <module>rocketmq_play</module>
         <module>elasticjob_play</module>
         <module>java8_play</module>
+        <module>hystrix_play</module>
     </modules>
     <parent>
         <artifactId>spring-boot-starter-parent</artifactId>
