@@ -19,6 +19,7 @@
         <module>hystrix_play</module>
         <module>spring-cloud_play</module>
         <module>spring-cloud_play</module>
+        <module>kafka_play</module>
 
 
     </modules>
