@@ -20,6 +20,7 @@
         <module>spring-cloud_play</module>
         <module>spring-cloud_play</module>
         <module>kafka_play</module>
+        <module>rocksdb_paly</module>
 
 
     </modules>
