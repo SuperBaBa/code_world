@@ -18,7 +18,6 @@
         <module>ssl_play</module>
         <module>hystrix_play</module>
         <module>spring-cloud_play</module>
-        <module>spring-cloud_play</module>
         <module>kafka_play</module>
         <module>rocksdb_paly</module>
 
@@ -89,7 +88,7 @@
         </dependencies>
     </dependencyManagement>
     <build>
-        <finalName>${artifactId}-${version}</finalName>
+        <finalName>${project.artifactId}-${project.version}</finalName>
     </build>
  <!--   <repositories>
         <repository>

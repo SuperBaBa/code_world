@@ -30,7 +30,7 @@
         </dependency>
     </dependencies>
     <build>
-        <finalName>elasticsearch_play_${version}</finalName>
+        <finalName>elasticsearch_play_${project.version}</finalName>
     </build>
     <profiles>
         <profile>

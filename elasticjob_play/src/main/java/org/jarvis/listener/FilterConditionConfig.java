@@ -2,7 +2,6 @@ package org.jarvis.listener;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
-import com.dingtalk.api.response.CorpReportListResponse;
 import org.apache.tomcat.util.json.JSONParser;
 import org.apache.tomcat.util.json.ParseException;
 import org.springframework.beans.factory.annotation.Value;
@@ -39,7 +38,7 @@ public class FilterConditionConfig {
     }
 
     @Bean(value = "ignoreKeyword")
-    public HashMap<String, JSONArray> getignoreKeyword(@Value("${ignoreKeyword:''}") String ignoreKeyword) {
+    public HashMap<String, JSONArray> getIgnoreKeyword(@Value("${ignoreKeyword:''}") String ignoreKeyword) {
         HashMap<String, JSONArray> conditionMap = null;
         if (!ignoreKeyword.isEmpty()) {
             conditionMap = JSON.parseObject(ignoreKeyword, HashMap.class);
