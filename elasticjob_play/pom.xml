@@ -12,6 +12,11 @@
     <artifactId>elasticjob_play</artifactId>
 <dependencies>
     <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>fastjson</artifactId>
+        <version>1.2.36</version>
+    </dependency>
+    <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-web</artifactId>
     </dependency>

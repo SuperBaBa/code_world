@@ -1,6 +1,9 @@
 package org.jarvis.task;
 
+import com.alibaba.fastjson.JSONArray;
 import org.apache.lucene.index.Term;
+import org.apache.lucene.queryparser.xml.builders.BooleanQueryBuilder;
+import org.apache.lucene.search.BooleanQuery;
 import org.apache.lucene.search.ConstantScoreQuery;
 import org.apache.lucene.search.TermQuery;
 import org.elasticsearch.action.ActionListener;
@@ -10,10 +13,8 @@ import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.RestHighLevelClient;
-import org.elasticsearch.index.query.ConstantScoreQueryBuilder;
-import org.elasticsearch.index.query.QueryBuilder;
-import org.elasticsearch.index.query.QueryBuilders;
-import org.elasticsearch.index.query.RangeQueryBuilder;
+import org.elasticsearch.index.query.*;
+import org.elasticsearch.index.search.QueryStringQueryParser;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
 import org.jarvis.listener.ESResponseActionListener;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,12 +26,18 @@ import org.springframework.scheduling.annotation.Scheduled;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.time.temporal.TemporalField;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * author:tennyson date:2020/6/16
  **/
 @Configuration
 public class CheckLogTask {
+    @Autowired
+    @Qualifier(value = "ignoreKeyword")
+    private HashMap<String, JSONArray> ignoreKeyword;
     @Qualifier("initElasticsearchClient")
     @Autowired
     private RestHighLevelClient restHighLevelClient;
@@ -49,12 +56,21 @@ public class CheckLogTask {
         RangeQueryBuilder rangeQueryBuilder = new RangeQueryBuilder("@timestamp")
                 .gte(startTime.toInstant(ZoneOffset.of("+8")).toEpochMilli())
                 .lte(endTime.toInstant(ZoneOffset.of("+8")).toEpochMilli());
-        QueryBuilder queryBuilder = QueryBuilders.constantScoreQuery(
-                QueryBuilders.boolQuery()
-                        .must(QueryBuilders.termQuery("logLevel", "ERROR"))
-                        .filter(rangeQueryBuilder)
-        );
-        String[] includes = {"appId", "hostName", "logLevel", "message", "packageName", "threadName","@timestamp"};
+        BoolQueryBuilder boolQueryBuilder = QueryBuilders.boolQuery()
+                .must(QueryBuilders.termQuery("logLevel", "ERROR"))
+                .filter(rangeQueryBuilder);
+        if (!ignoreKeyword.isEmpty()) {
+            StringBuilder statement = new StringBuilder();
+            for (String field : ignoreKeyword.keySet()) {
+                Object[] valueArray = ignoreKeyword.get(field).toArray();
+                for (int i = 0; i < valueArray.length; i++) {
+                    statement.append(field).append(":\"").append(valueArray[i]).append("\" AND ");
+                }
+            }
+            boolQueryBuilder.mustNot(QueryBuilders.queryStringQuery(statement.substring(0,statement.lastIndexOf("AND"))));
+        }
+        QueryBuilder queryBuilder = QueryBuilders.constantScoreQuery(boolQueryBuilder);
+        String[] includes = {"appId", "hostName", "logLevel", "message", "packageName", "threadName", "@timestamp"};
         String[] excludes = {"_id", "_index"};
         SearchSourceBuilder sourceBuilder = new SearchSourceBuilder();
         sourceBuilder.size(500);

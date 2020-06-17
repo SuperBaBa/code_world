@@ -45,7 +45,7 @@ public class DingTalkAlert {
         stringSetMap = filter.filterInvaildAlert(stringSetMap, condition);
         StringBuilder content = new StringBuilder();
         for (String appId : stringSetMap.keySet()) {
-            content.append("# ")
+            content.append("\n# ")
                     .append(appId)
                     .append("\t检测到\t**")
                     .append(stringSetMap.get(appId).size())
@@ -71,7 +71,7 @@ public class DingTalkAlert {
         actioncard.setSingleURL("http://xt.yto.net.cn/monitor-pc-portal/index?source=PORTAL");
 
         actioncard.setBtnOrientation("0");
-        actioncard.setText(content.toString());
+        actioncard.setText(image+content.toString());
 
         request.setAt(at);
         request.setActionCard(actioncard);
