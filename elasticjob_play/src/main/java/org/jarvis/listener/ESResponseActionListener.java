@@ -1,12 +1,13 @@
 package org.jarvis.listener;
 
-import jdk.nashorn.internal.objects.annotations.Function;
 import org.elasticsearch.action.ActionListener;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.search.SearchHit;
 import org.jarvis.alert.DingTalkAlert;
 import org.jarvis.processors.ArrayListProcessor;
 import org.jarvis.processors.StringProcessor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -23,8 +24,13 @@ import java.util.stream.Collectors;
 public class ESResponseActionListener implements ActionListener<SearchResponse> {
     @Autowired
     private DingTalkAlert dingTalkAlert;
+
     private Set<String> ignoreKewordSet;
+
     private Map<String, ArrayList<String>> collectError = new HashMap<>();
+
+    private final static Logger logger = LoggerFactory.getLogger(ESResponseActionListener.class);
+
 
     @Override
     public void onResponse(SearchResponse searchResponse) {
@@ -40,18 +46,24 @@ public class ESResponseActionListener implements ActionListener<SearchResponse> 
             for (SearchHit documentFields : vaildHit) {
                 Map<String, Object> sourceMap = documentFields.getSourceAsMap();
                 String message = (String) arrayProcessor.forwordNextProcess(sourceMap.get("message"));
+                String outPutmessage=message.length()>256?message.substring(0,256):message;
                 LocalDateTime time = LocalDateTime.parse((String) sourceMap.get("@timestamp"), DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSX"));
                 String appId = String.valueOf(sourceMap.get("appId"));
-                packErrorInfomation(appId, message);
+                logger.info("logTime={},appId={},reason={},costTime={}",
+                        time,
+                        appId,
+                        outPutmessage,
+                        searchResponse.getTook());
+                packErrorInfomation(appId, outPutmessage);
             }
             if (!collectError.isEmpty())
                 dingTalkAlert.sendMessage(collectError, (result, condition) -> {
-                    Map<String, ArrayList<String>> resultThroughFilter=new HashMap<>();
+                    Map<String, ArrayList<String>> resultThroughFilter = new HashMap<>();
                     for (String appId : result.keySet()) {
-                        if (condition.containsKey(appId)&&result.get(appId).size() < condition.get(appId)) {
+                        if (condition.containsKey(appId) && result.get(appId).size() < condition.get(appId)) {
                             continue;
                         }
-                        resultThroughFilter.put(appId,result.get(appId));
+                        resultThroughFilter.put(appId, result.get(appId));
                     }
                     return resultThroughFilter;
                 });

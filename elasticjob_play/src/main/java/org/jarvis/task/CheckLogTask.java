@@ -1,20 +1,13 @@
 package org.jarvis.task;
 
 import com.alibaba.fastjson.JSONArray;
-import org.apache.lucene.index.Term;
-import org.apache.lucene.queryparser.xml.builders.BooleanQueryBuilder;
-import org.apache.lucene.search.BooleanQuery;
-import org.apache.lucene.search.ConstantScoreQuery;
-import org.apache.lucene.search.TermQuery;
-import org.elasticsearch.action.ActionListener;
 import org.elasticsearch.action.search.SearchRequest;
-import org.elasticsearch.action.search.SearchRequestBuilder;
-import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.client.RequestOptions;
-import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.RestHighLevelClient;
-import org.elasticsearch.index.query.*;
-import org.elasticsearch.index.search.QueryStringQueryParser;
+import org.elasticsearch.index.query.BoolQueryBuilder;
+import org.elasticsearch.index.query.QueryBuilder;
+import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.index.query.RangeQueryBuilder;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
 import org.jarvis.listener.ESResponseActionListener;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,16 +18,15 @@ import org.springframework.scheduling.annotation.Scheduled;
 
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
-import java.time.temporal.TemporalField;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * author:tennyson date:2020/6/16
  **/
 @Configuration
 public class CheckLogTask {
+    @Value("${indies:search_waybill_log}")
+    private String[] indices;
     @Autowired
     @Qualifier(value = "ignoreKeyword")
     private HashMap<String, JSONArray> ignoreKeyword;
@@ -77,7 +69,7 @@ public class CheckLogTask {
         sourceBuilder.query(queryBuilder).fetchSource(includes, excludes);
         SearchRequest searchRequest = new SearchRequest();
         searchRequest.source(sourceBuilder);
-        searchRequest.indices("search_waybill_log");
+        searchRequest.indices(indices);
         restHighLevelClient.searchAsync(searchRequest, RequestOptions.DEFAULT, responseActionListener);
         System.err.printf("执行静态定时任务时间: 从%s开始查询到%s\n", startTime, endTime);
     }

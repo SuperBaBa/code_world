@@ -41,7 +41,7 @@ public class DingTalkAlert {
     }
 
     public void sendMessage(Map<String, ArrayList<String>> stringSetMap, ESResponseActionListener.Filter filter) {
-        String image = "![screenshot](https://tse1-mm.cn.bing.net/th?id=OIP.AboZzoTVU1D2fyNLcJSqAAHaJ3&w=125&h=160&c=8&rs=1&qlt=90&dpr=1.25&pid=3.1&rm=2)";
+        String image = "![screenshot](https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=959636631,445041190&fm=26&gp=0.jpg)";
         stringSetMap = filter.filterInvaildAlert(stringSetMap, condition);
         StringBuilder content = new StringBuilder();
         for (String appId : stringSetMap.keySet()) {
