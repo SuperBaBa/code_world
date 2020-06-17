@@ -51,16 +51,7 @@ public class CheckLogTask {
         BoolQueryBuilder boolQueryBuilder = QueryBuilders.boolQuery()
                 .must(QueryBuilders.termQuery("logLevel", "ERROR"))
                 .filter(rangeQueryBuilder);
-        if (!ignoreKeyword.isEmpty()) {
-            StringBuilder statement = new StringBuilder();
-            for (String field : ignoreKeyword.keySet()) {
-                Object[] valueArray = ignoreKeyword.get(field).toArray();
-                for (int i = 0; i < valueArray.length; i++) {
-                    statement.append(field).append(":\"").append(valueArray[i]).append("\" AND ");
-                }
-            }
-            boolQueryBuilder.mustNot(QueryBuilders.queryStringQuery(statement.substring(0,statement.lastIndexOf("AND"))));
-        }
+        this.addFilterKeyword(boolQueryBuilder);
         QueryBuilder queryBuilder = QueryBuilders.constantScoreQuery(boolQueryBuilder);
         String[] includes = {"appId", "hostName", "logLevel", "message", "packageName", "threadName", "@timestamp"};
         String[] excludes = {"_id", "_index"};
@@ -72,5 +63,23 @@ public class CheckLogTask {
         searchRequest.indices(indices);
         restHighLevelClient.searchAsync(searchRequest, RequestOptions.DEFAULT, responseActionListener);
         System.err.printf("执行静态定时任务时间: 从%s开始查询到%s\n", startTime, endTime);
+    }
+
+    /**
+     * filter context 更改为 match_phrase
+     * @param boolQueryBuilder 分组查询builder
+     * @return
+     */
+    public BoolQueryBuilder addFilterKeyword(BoolQueryBuilder boolQueryBuilder) {
+        BoolQueryBuilder baseBoolQuery=boolQueryBuilder;
+        if (!ignoreKeyword.isEmpty()) {
+            for (String field : ignoreKeyword.keySet()) {
+                Object[] valueArray = ignoreKeyword.get(field).toArray();
+                for (Object o : valueArray) {
+                    baseBoolQuery.mustNot(QueryBuilders.matchPhraseQuery(field, o));
+                }
+            }
+        }
+        return baseBoolQuery;
     }
 }

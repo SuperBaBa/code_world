@@ -3,6 +3,8 @@ package org.jarvis.alert;
 import com.dingtalk.api.DefaultDingTalkClient;
 import com.dingtalk.api.DingTalkClient;
 import com.dingtalk.api.request.OapiRobotSendRequest;
+import com.dingtalk.api.response.OapiRobotSendResponse;
+import com.taobao.api.ApiException;
 import org.apache.commons.codec.binary.Base64;
 import org.jarvis.listener.ESResponseActionListener;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,12 +77,12 @@ public class DingTalkAlert {
 
         request.setAt(at);
         request.setActionCard(actioncard);
-        System.out.println("111111111111111433333333333333333333333");
-//        try {
-//            OapiRobotSendResponse response = client.execute(request);
-//        } catch (ApiException e) {
-//            e.printStackTrace();
-//        }
+//        System.out.println("111111111111111433333333333333333333333");
+        try {
+            OapiRobotSendResponse response = client.execute(request);
+        } catch (ApiException e) {
+            e.printStackTrace();
+        }
     }
 
 }
