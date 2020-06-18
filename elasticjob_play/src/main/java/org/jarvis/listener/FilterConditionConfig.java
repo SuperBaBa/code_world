@@ -15,6 +15,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * author:tennyson date:2020/6/16
  **/
 @Configuration
+//@RefreshScope
 public class FilterConditionConfig {
     @Bean(value = "getConditionJSON")
     public Map<String, Long> getConditionJSON(@Value("${conditionJSON:''}") String conditionJSON) {

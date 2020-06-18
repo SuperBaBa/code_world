@@ -7,7 +7,7 @@
     <groupId>org.jarvis</groupId>
     <artifactId>code_world</artifactId>
     <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <!--父POM管理的模块-->
     <modules>
         <module>elasticsearch_play</module>
