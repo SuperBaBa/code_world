@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: web_play
+  thymeleaf:
+    cache: false # 是否开启缓存
+    check-template: true # 检查模板是否存在
+    prefix: classpath:/templates/
+    servlet:
+      content-type: text/html
+    suffix: .html # 模板文件后缀
+    encoding: utf-8 # 模本文件编码
+    check-template-location: true # 检查模板位置是否存在
+server:
+  servlet:
+    context-path: /web

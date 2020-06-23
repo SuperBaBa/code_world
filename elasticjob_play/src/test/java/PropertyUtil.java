@@ -1,6 +1,6 @@
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Properties;
 
 /**
@@ -17,10 +17,10 @@ public class PropertyUtil {
     }
     private static  Properties loadProps(){
         Properties props = new Properties();
-        InputStream in = null;
+        FileReader in = null;
         try {
 //            in = PropertyUtil.class.getClassLoader().getResourceAsStream("config.properties");
-            in = PropertyUtil.class.getResourceAsStream("config.properties");
+            in = new FileReader("E:\\workspace\\code_world\\elasticjob_play\\src\\main\\resources\\application.properties");
             props.load(in);
         } catch (FileNotFoundException e) {
             e.printStackTrace();

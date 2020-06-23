@@ -20,6 +20,7 @@
         <module>spring-cloud_play</module>
         <module>kafka_play</module>
         <module>rocksdb_paly</module>
+        <module>web_play</module>
 
 
     </modules>
@@ -28,6 +29,7 @@
         <artifactId>spring-boot-starter-parent</artifactId>
         <groupId>org.springframework.boot</groupId>
         <version>2.2.4.RELEASE</version>
+        <relativePath/>
     </parent>
     <!--版本资源管理-->
     <properties>
@@ -90,16 +92,16 @@
     <build>
         <finalName>${project.artifactId}-${project.version}</finalName>
     </build>
- <!--   <repositories>
-        <repository>
-            <id>spring</id>
-            <url>https://maven.aliyun.com/repository/spring</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>-->
+    <!--   <repositories>
+           <repository>
+               <id>spring</id>
+               <url>https://maven.aliyun.com/repository/spring</url>
+               <releases>
+                   <enabled>true</enabled>
+               </releases>
+               <snapshots>
+                   <enabled>true</enabled>
+               </snapshots>
+           </repository>
+       </repositories>-->
 </project>
