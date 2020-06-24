@@ -1,8 +1,6 @@
 package org.jarvis.config;
 
-import javafx.scene.control.Separator;
 import org.apache.http.HttpHost;
-import org.elasticsearch.client.ElasticsearchClient;
 import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.RestHighLevelClient;
 import org.springframework.beans.factory.annotation.Value;
@@ -10,9 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.PostConstruct;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -35,7 +31,6 @@ public class ElasticsearchConfiguration {
             String port = url.split(":")[1];
             httpHostList.add(new HttpHost(host, Integer.parseInt(port), "http"));
         }
-
         return new RestHighLevelClient(
                 RestClient.builder(httpHostList.toArray(new HttpHost[httpHostList.size()])));
     }

@@ -21,6 +21,9 @@ spring:
     expose-session-attributes: false
     suffix: .ftl
     template-loader-path: classpath:/freemarker/
+  http:
+    encoding:
+      force-response: true
 server:
   servlet:
     context-path: /web
