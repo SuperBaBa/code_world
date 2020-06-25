@@ -24,6 +24,3 @@ spring:
   http:
     encoding:
       force-response: true
-server:
-  servlet:
-    context-path: /web

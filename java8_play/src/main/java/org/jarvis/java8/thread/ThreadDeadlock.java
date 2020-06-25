@@ -50,6 +50,7 @@ class SyncThread implements Runnable{
     }
     private void work() {
         try {
+            System.out.println("to start sleep 30 second");
             Thread.sleep(30000);
         } catch (InterruptedException e) {
             e.printStackTrace();

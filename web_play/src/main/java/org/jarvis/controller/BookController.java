@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Arrays;
+import java.util.List;
+
 import java.util.Date;
 
 
@@ -17,11 +20,16 @@ import java.util.Date;
 public class BookController {
     @GetMapping(value = "v1/book")
     public ModelAndView books() {
-        Books books = new Books();
-        books.setAuthor("罗贯中");
-        books.setName("三国演义");
-        books.setId(1);
+        Books book1 = new Books();
+        book1.setAuthor("罗贯中");
+        book1.setName("三国演义");
+        book1.setId(1);
+        Books book2 = new Books();
+        book2.setAuthor("曹雪芹");
+        book2.setName("红楼梦");
+        book2.setId(2);
         ModelAndView mv = new ModelAndView();
+        List<Books> books=Arrays.asList(book1,book2);
         mv.setViewName("book");
         mv.addObject("books", books);
         return mv;
