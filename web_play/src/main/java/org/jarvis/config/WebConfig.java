@@ -17,20 +17,22 @@ import java.util.List;
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
     /*静态资源访问路径*/
-    private String staticPathPattern = "/**";
+    private String[] staticPathPattern = {"/js/**","css/**"};
     /*静态资源本地路径*/
     private static final String[] CLASSPATH_RESOURCE_LOCATIONS = {
-            "classpath:/META-INF/resources/",
-            "/classpath:/resources/",
-            "classpath:/static/"};
+            "classpath:/META-INF/resources/**",
+            "/classpath:/resources/**",
+            "classpath:/static/**"};
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         /*handler中是服务器虚拟路径，jsp访问的目录，location中是相对应的本地路径*/
-        registry.addResourceHandler("/images/**")
-                .addResourceLocations("classpath:/images/");
-        registry.addResourceHandler("/html/**")
-                .addResourceLocations("classpath:/html/");
+//        registry.addResourceHandler("/images/**")
+//                .addResourceLocations("classpath:/images/");
+//        registry.addResourceHandler("/html/**")
+//                .addResourceLocations("classpath:/html/");
+//        registry.addResourceHandler("/**")
+//                .addResourceLocations("classpath:/static/**");
     }
 
     @Override
