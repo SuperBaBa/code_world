@@ -1,2 +1,2 @@
 # code_world
-一个各种整合中间组件的练习项目
+该项目通过springboot整合多种中间组件，同时还会使用一些spring框架的操作，致力于将spring进行高效开发

@@ -8,7 +8,6 @@ import org.springframework.web.multipart.MultipartFile;
 public class MultipartFileParam {
     //  uid
     private String uid;
-
     //总分片数量
     private int chunks;
     //当前为第几块分片

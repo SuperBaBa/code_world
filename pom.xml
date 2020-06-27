@@ -12,25 +12,15 @@
     <modules>
         <module>elasticsearch_play</module>
         <module>rocketmq_play</module>
-        <module>elasticjob_play</module>
+        <module>elkalert_paly</module>
         <module>java8_play</module>
-
         <module>ssl_play</module>
         <module>hystrix_play</module>
         <module>spring-cloud_play</module>
         <module>kafka_play</module>
         <module>rocksdb_paly</module>
         <module>web_play</module>
-
-
     </modules>
-    <!--继承springboot的父pom-->
-    <parent>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <groupId>org.springframework.boot</groupId>
-        <version>2.2.4.RELEASE</version>
-        <relativePath/>
-    </parent>
     <!--版本资源管理-->
     <properties>
         <java.version>1.8</java.version>
@@ -39,14 +29,18 @@
         <spring-cloud-services.version>2.2.3.RELEASE</spring-cloud-services.version>
         <spring-cloud.version>Hoxton.SR4</spring-cloud.version>
     </properties>
+
     <organization>
         <name>Jarvis Corporation</name>
         <url>https://www.cecilia-wear.cn/</url>
     </organization>
-
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.4.RELEASE</version>
+    </parent>
     <dependencyManagement>
         <dependencies>
-
             <!--springCloud版本管理-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
@@ -104,4 +98,21 @@
                </snapshots>
            </repository>
        </repositories>-->
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <profileActive>dev</profileActive>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <profileActive>prod</profileActive>
+            </properties>
+        </profile>
+    </profiles>
 </project>

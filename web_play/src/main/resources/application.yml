@@ -26,15 +26,15 @@ spring:
       force-response: true
   servlet:
     multipart:
-      max-file-size: 30MB
-      max-request-size: 50MB
+      max-file-size: 5MB
+      max-request-size: 5MB
 server:
   port: 80
   tomcat:
-    max-swallow-size: 100MB #重要的一行，修改tomcat的吞吐量
+    max-swallow-size: 10MB #重要的一行，修改tomcat的吞吐量
 
 breakpoint:
   upload:
     dir: D:/data0/uploads/
     #1024*1024=1 048 576,5M=5 242 880
-    chunkSize: 5 242 880
+    chunkSize: 5242880

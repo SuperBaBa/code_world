@@ -47,7 +47,7 @@ public class UploadFileController {
      * @throws IOException
      */
     @RequestMapping(value = "/save")
-    public Map<String, String> importExcel(@RequestParam MultipartFile file) throws IOException {
+    public Map<String, String> uploadChunk(@RequestParam MultipartFile file) throws IOException {
         //获取文件名
         String originalFilename = file.getOriginalFilename();
         //合并文件
