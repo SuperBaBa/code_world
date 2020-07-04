@@ -20,6 +20,8 @@
         <module>kafka_play</module>
         <module>rocksdb_paly</module>
         <module>web_play</module>
+        <module>elklog_play</module>
+        <module>spring-family_play</module>
     </modules>
     <!--版本资源管理-->
     <properties>
