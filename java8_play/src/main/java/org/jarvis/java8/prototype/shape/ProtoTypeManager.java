@@ -6,7 +6,7 @@ import java.util.HashMap;
  * author:Lovel  date:2020/5/18
  */
 public class ProtoTypeManager {
-    private HashMap<String, Shape> ht = new HashMap<>();
+    private HashMap<String, Shape> ht = new HashMap<String, Shape>();
 
     public ProtoTypeManager() {
         ht.put("Circle", new Circle());

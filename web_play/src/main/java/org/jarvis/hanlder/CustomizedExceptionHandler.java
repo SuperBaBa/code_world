@@ -25,14 +25,14 @@ public class CustomizedExceptionHandler {
 
     @ModelAttribute(value = "userInfo")
     public Map<String, String> userInfo() {
-        Map<String, String> map = new HashMap<>();
+        Map<String, String> map = new HashMap<String, String>();
         map.put("username", "徐锦江");
         map.put("出演作品", "海王");
         return map;
     }
     @ModelAttribute(value = "globalInfo")
     public Map<String, String> globalInfo() {
-        Map<String, String> map = new HashMap<>();
+        Map<String, String> map = new HashMap<String, String>();
         map.put("name", "全局信息");
         map.put("value", "这是一个全局信息目前只会在");
         return map;

@@ -17,6 +17,7 @@
         <module>multi-datasource-demo</module>
         <module>druid-demo</module>
         <module>jdbc-template-demo</module>
+        <module>transaction-demo</module>
     </modules>
     <dependencyManagement>
         <dependencies>

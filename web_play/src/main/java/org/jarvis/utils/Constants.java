@@ -17,7 +17,7 @@ public interface Constants {
     /**
      * 缓存键值
      */
-    public static final Map<Class<?>, String> cacheKeyMap = new HashMap<>();
+    public static final Map<Class<?>, String> cacheKeyMap = new HashMap<Class<?>, String>();
     /**
      * 保存文件所在路径的key，eg.FILE_MD5:1243jkalsjflkwaejklgjawe
      */
