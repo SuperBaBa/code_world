@@ -74,7 +74,8 @@ public class FirstDao {
     public void listData() {
         //查询记录总数
         log.info("Count: {}",jdbcTemplate.queryForObject("SELECT COUNT(*) FROM `FIRST` ", Long.class));
-        //查询所有数据的username，并遍历
+        //查询所有数据的username，
+        // 并遍历
         List<String> list = jdbcTemplate.queryForList("SELECT USERNAME FROM `FIRST`", String.class);
         list.forEach(s -> log.info("USERNAME: {}", s));
         //查询并返回结果集

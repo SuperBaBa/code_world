@@ -18,6 +18,8 @@
         <module>druid-demo</module>
         <module>jdbc-template-demo</module>
         <module>transaction-demo</module>
+        <module>database-error-code-demo</module>
+        <module>jpa-demo</module>
     </modules>
     <dependencyManagement>
         <dependencies>
