@@ -25,13 +25,10 @@ public class CoffeeOrderService {
     @Autowired
     private CoffeeRepository coffeeRepository;
 
-    public void insertCoffeeOrder(CoffeeOrder coffeeOrder) {
-        coffeeOrderRepository.save(coffeeOrder);
-    }
-
+    /*初始化几个订单*/
     public void initCoffeeOrder() {
         Coffee espresso = coffeeRepository.findById(1L).get();
-        log.info("select coffee from menu , coffee => {}",espresso);
+        log.info("select coffee from menu , coffee => {}", espresso);
         //新建coffee订单
         CoffeeOrder order = CoffeeOrder.builder()
                 .customer("Li Lei")
@@ -41,7 +38,7 @@ public class CoffeeOrderService {
         coffeeOrderRepository.save(order);
         log.info("Order: {}", order);
         Coffee latte = coffeeRepository.findById(2L).get();
-        log.info("select coffee from menu , coffee => {}",latte);
+        log.info("select coffee from menu , coffee => {}", latte);
 
         order = CoffeeOrder.builder()
                 .customer("Li Lei")
@@ -51,25 +48,26 @@ public class CoffeeOrderService {
         coffeeOrderRepository.save(order);
         log.info("Order: {}", order);
     }
+
     public void findOrders() {
         coffeeRepository
                 .findAll()
                 .forEach(c -> log.info("Loading {}", c));
 
-//        List<CoffeeOrder> list = coffeeOrderRepository.findTop3ByOrderByUpdateTimeDescIdAsc();
-//        log.info("findTop3ByOrderByUpdateTimeDescIdAsc: {}", getJoinedOrderId(list));
-//
-//        list = orderRepository.findByCustomerOrderById("Li Lei");
-//        log.info("findByCustomerOrderById: {}", getJoinedOrderId(list));
-//
-//        // 不开启事务会因为没Session而报LazyInitializationException
-//        list.forEach(o -> {
-//            log.info("Order {}", o.getId());
-//            o.getItems().forEach(i -> log.info("  Item {}", i));
-//        });
-//
-//        list = orderRepository.findByItems_Name("latte");
-//        log.info("findByItems_Name: {}", getJoinedOrderId(list));
+        List<CoffeeOrder> list = coffeeOrderRepository.findTop3ByOrderByUpdateTimeDescIdAsc();
+        log.info("findTop3ByOrderByUpdateTimeDescIdAsc: {}", getJoinedOrderId(list));
+
+        list = coffeeOrderRepository.findByCustomerOrderById("Li Lei");
+        log.info("findByCustomerOrderById: {}", getJoinedOrderId(list));
+
+        // 不开启事务会因为没Session而报LazyInitializationException
+        list.forEach(o -> {
+            log.info("Order {}", o.getId());
+            o.getItems().forEach(i -> log.info("  Item {}", i));
+        });
+
+        list = coffeeOrderRepository.findByItems_Name("latte");
+        log.info("findByItems_Name: {}", getJoinedOrderId(list));
     }
 
     private String getJoinedOrderId(List<CoffeeOrder> list) {

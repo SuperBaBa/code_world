@@ -20,6 +20,7 @@ public class CoffeeService {
     @Autowired
     CoffeeOrderRepository orderRepository;
 
+    /*初始化部分咖啡存入菜单*/
     public void initCoffee() {
         //浓咖啡存入菜单
         Coffee espresso = Coffee.builder()
@@ -35,5 +36,11 @@ public class CoffeeService {
                 .build();
         coffeeRepository.save(latte);
         log.info("Coffee: {}", latte);
+        //cappuccino
+        Coffee cappuccino= Coffee.builder()
+                .name("cappuccino")
+                .price(Money.of(CurrencyUnit.of("CNY"),18.9))
+                .build();
+        log.info("Coffee: {}",cappuccino);
     }
 }
