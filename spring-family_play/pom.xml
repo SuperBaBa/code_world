@@ -20,6 +20,7 @@
         <module>transaction-demo</module>
         <module>database-error-code-demo</module>
         <module>jpa-demo</module>
+        <module>mybatis-demo</module>
     </modules>
     <dependencyManagement>
         <dependencies>
