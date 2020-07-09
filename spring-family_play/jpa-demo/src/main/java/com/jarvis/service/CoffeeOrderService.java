@@ -61,6 +61,7 @@ public class CoffeeOrderService {
         log.info("findByCustomerOrderById: {}", getJoinedOrderId(list));
 
         // 不开启事务会因为没Session而报LazyInitializationException
+        //TODO 为什么会出现LazyInitializationException，必须开启事务吗
         list.forEach(o -> {
             log.info("Order {}", o.getId());
             o.getItems().forEach(i -> log.info("  Item {}", i));

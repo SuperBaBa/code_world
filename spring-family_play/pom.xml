@@ -21,6 +21,8 @@
         <module>database-error-code-demo</module>
         <module>jpa-demo</module>
         <module>mybatis-demo</module>
+        <module>mango-demo</module>
+        <module>pagehelper</module>
     </modules>
     <dependencyManagement>
         <dependencies>

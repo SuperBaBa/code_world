@@ -23,6 +23,7 @@
         <module>elklog_play</module>
         <module>nacos_paly</module>
         <module>spring-family_play</module>
+        <module>logback-demo</module>
     </modules>
     <!--版本资源管理-->
     <properties>
