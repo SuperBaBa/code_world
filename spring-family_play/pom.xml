@@ -23,6 +23,7 @@
         <module>mybatis-demo</module>
         <module>mango-demo</module>
         <module>pagehelper</module>
+        <module>mybatis-generator-demo</module>
     </modules>
     <dependencyManagement>
         <dependencies>
