@@ -1,6 +1,8 @@
-# code_world
-该项目通过springboot整合多种中间组件，同时还会使用一些spring框架的操作，致力于将spring进行高效开发
-
+# web_play
+这个模块主要针对spring-web项目进行整合，其中包括ssl，对servlet的操作，辨析model、modelAndView
+项目采用`初始化模块`和`数据模型分开`，需要初始化的模块需要资源文件的支持，实体模块可能需要字段映射文件支持，
+整个项目可采用一套实体类模块。
+[![Marcus's github stats](https://github-readme-stats.vercel.app/api?username=superbaba)](https://github.com/SuperBaBa/code_world)
 ```xml
 <!--版本资源管理-->
 <properties>
