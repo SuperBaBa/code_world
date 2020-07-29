@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
@@ -22,6 +23,8 @@ import javax.sql.DataSource;
 @SpringBootApplication
 @Slf4j
 public class DruidDemoApplication implements CommandLineRunner {
+    @Autowired
+    private DataSourceProperties dataSourceProperties;
     @Autowired
     private DataSource dataSource;
     @Autowired

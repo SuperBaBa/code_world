@@ -39,7 +39,7 @@ public class DataSourceConfiguration {
         return new DataSourceTransactionManager(firstDataSource);
     }
 
-    @Bean
+    @Bean(name = "firstJdbcTemplate")
     JdbcTemplate firstJdbcTemplate(DataSource firstDataSource) {
         return new JdbcTemplate(firstDataSource);
     }

@@ -9,7 +9,9 @@
     </parent>
     <packaging>jar</packaging>
     <modelVersion>4.0.0</modelVersion>
-
+    <modules>
+        <module>ssl_play</module>
+    </modules>
     <artifactId>web_play</artifactId>
     <dependencies>
         <dependency>
@@ -24,6 +26,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
         <!--加入thymeleaf依赖-->
         <dependency>
@@ -44,6 +51,11 @@
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>1.2.71</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jarvis</groupId>
+            <artifactId>data-transfer-object-common</artifactId>
+            <version>1.0</version>
         </dependency>
     </dependencies>
     <build>

@@ -10,6 +10,7 @@ public interface CoffeeMapper {
     @Options(useGeneratedKeys = true, keyProperty = "id")
     int save(Coffee coffee);
 
+
     @Select("select * from t_coffee where id = #{id}")
     @Results({
             @Result(id = true, column = "id", property = "id"),

@@ -6,10 +6,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.joda.money.CurrencyUnit;
 import org.joda.money.Money;
 import org.mybatis.spring.annotation.MapperScan;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import javax.annotation.Resource;
 
 /**
  * author:tennyson date:2020/7/7
@@ -22,7 +23,7 @@ public class MybatisDemo implements CommandLineRunner {
         SpringApplication.run(MybatisDemo.class, args);
     }
 
-    @Autowired
+    @Resource(type = CoffeeMapper.class)
     private CoffeeMapper coffeeMapper;
 
     @Override

@@ -3,6 +3,7 @@ package com.jarvis.dao;
 import com.jarvis.entity.Fist;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -25,8 +26,11 @@ import java.util.List;
 @Slf4j
 public class FirstDao {
     @Autowired
-//    @Qualifier("firstJdbcTemplate")
+    @Qualifier("firstJdbcTemplate")
     private JdbcTemplate jdbcTemplate;
+    @Autowired
+    @Qualifier("secondJdbcTemplate")
+    private JdbcTemplate secondJdbcTemplate;
     @Autowired
     private SimpleJdbcInsert simpleJdbcInsert;
     @Autowired

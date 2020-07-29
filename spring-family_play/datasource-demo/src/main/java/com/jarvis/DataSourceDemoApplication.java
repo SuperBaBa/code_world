@@ -22,11 +22,14 @@ import java.sql.SQLException;
 @SpringBootApplication
 @RestController
 @Slf4j
+//@ImportResource(locations = {"classpath:/person.yml"})
 public class DataSourceDemoApplication implements CommandLineRunner {
     @Autowired
     private DataSource dataSource;
     @Autowired
     private JdbcTemplate jdbcTemplate;
+    @Autowired
+    private LoadPropertyConfiguration configuration;
 
     public static void main(String[] args) {
         SpringApplication.run(DataSourceDemoApplication.class, args);
@@ -34,13 +37,14 @@ public class DataSourceDemoApplication implements CommandLineRunner {
 
     @RequestMapping(value = "/hello")
     public String hello() {
-        return "hello-spring";
+        return configuration.getFirst();
     }
 
     @Override
     public void run(String... args) throws Exception {
         showConnection();
         showData();
+
     }
 
     private void showConnection() throws SQLException {

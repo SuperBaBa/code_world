@@ -31,3 +31,11 @@ HELP.md
 .vscode/
 
 /logs/
+/log/
+/log.path_IS_UNDEFINED/
+
+### archive files ###
+*.zip
+*.7z
+*.tar
+*.tar.gz
