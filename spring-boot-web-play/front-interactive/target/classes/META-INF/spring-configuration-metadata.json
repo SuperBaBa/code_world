@@ -1,0 +1,27 @@
+{
+  "groups": [
+    {
+      "name": "com.haozz.opensource",
+      "type": "org.jarvis.config.Resource",
+      "sourceType": "org.jarvis.config.Resource"
+    }
+  ],
+  "properties": [
+    {
+      "name": "com.haozz.opensource.language",
+      "type": "java.lang.String",
+      "sourceType": "org.jarvis.config.Resource"
+    },
+    {
+      "name": "com.haozz.opensource.name",
+      "type": "java.lang.String",
+      "sourceType": "org.jarvis.config.Resource"
+    },
+    {
+      "name": "com.haozz.opensource.website",
+      "type": "java.lang.String",
+      "sourceType": "org.jarvis.config.Resource"
+    }
+  ],
+  "hints": []
+}

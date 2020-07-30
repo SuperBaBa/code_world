@@ -1,9 +1,7 @@
 package org.jarvis.service.impl;
 
-import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.jarvis.model.MultipartFileParam;
 import org.jarvis.service.StorageService;
-import org.jarvis.utils.FileMD5Util;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +12,6 @@ import org.springframework.util.FileSystemUtils;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-import java.nio.MappedByteBuffer;
-import java.nio.channels.FileChannel;
 import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
 import java.nio.file.Path;
