@@ -14,18 +14,13 @@
         <module>rocketmq_play</module>
         <module>elkalert_paly</module>
         <module>java8_play</module>
-        <module>hystrix_play</module>
-        <module>spring-cloud_play</module>
         <module>kafka_play</module>
         <module>rocksdb_paly</module>
-        <module>web_play</module>
         <module>elklog_play</module>
-        <module>nacos_paly</module>
-        <module>spring-family_play</module>
         <module>logback-play</module>
-        <module>api-design</module>
         <module>concurrent_paly</module>
         <module>data-transfer-object-common</module>
+        <module>spring-cloud-netfix-play</module>
     </modules>
     <!--版本资源管理-->
     <properties>
@@ -43,6 +38,16 @@
     </organization>
     <!--日志依赖-->
     <dependencies>
+        <!--spring-boot启动器-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
         <!--spring-actuator执行器，通过配置endpoint查看spring项目状态，包括bean容器的初始化bean-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -64,6 +69,12 @@
 
     <dependencyManagement>
         <dependencies>
+            <!--fastjson依赖-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>1.2.71</version>
+            </dependency>
             <!--springboot依赖-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -133,7 +144,7 @@
         </profile>
     </profiles>
     <!--阿里云仓库-->
-    <repositories>
+    <!--<repositories>
         <repository>
             <id>spring</id>
             <url>https://maven.aliyun.com/repository/spring</url>
@@ -144,5 +155,17 @@
                 <enabled>true</enabled>
             </snapshots>
         </repository>
-    </repositories>
+        <repository>
+            <id>maven-ali</id>
+            <url>https://maven.aliyun.com/repository/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
+            </snapshots>
+        </repository>
+    </repositories>-->
 </project>
