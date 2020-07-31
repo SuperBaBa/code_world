@@ -8,20 +8,6 @@
     <artifactId>code_world</artifactId>
     <packaging>pom</packaging>
     <version>1.0</version>
-    <!--父POM管理的模块-->
-    <modules>
-        <module>elasticsearch_play</module>
-        <module>rocketmq_play</module>
-        <module>elkalert_paly</module>
-        <module>java8_play</module>
-        <module>kafka_play</module>
-        <module>rocksdb_paly</module>
-        <module>elklog_play</module>
-        <module>logback-play</module>
-        <module>concurrent_paly</module>
-        <module>data-transfer-object-common</module>
-        <module>spring-cloud-netfix-play</module>
-    </modules>
     <!--版本资源管理-->
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -43,6 +29,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
+        <!--spring单元测试-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -100,8 +87,6 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>-->
-
-
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
@@ -144,7 +129,7 @@
         </profile>
     </profiles>
     <!--阿里云仓库-->
-    <!--<repositories>
+    <repositories>
         <repository>
             <id>spring</id>
             <url>https://maven.aliyun.com/repository/spring</url>
@@ -167,5 +152,5 @@
                 <checksumPolicy>fail</checksumPolicy>
             </snapshots>
         </repository>
-    </repositories>-->
+    </repositories>
 </project>

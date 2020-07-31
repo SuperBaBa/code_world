@@ -12,7 +12,7 @@
     <modules>
         <module>hystrix-demo</module>
     </modules>
-    <artifactId>spring-cloud-netfix-paly</artifactId>
+    <artifactId>spring-cloud-netfix-play</artifactId>
     <version>1.0</version>
 
 </project>
