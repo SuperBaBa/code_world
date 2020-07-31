@@ -20,7 +20,7 @@ public class PropertyUtil {
         FileReader in = null;
         try {
 //            in = PropertyUtil.class.getClassLoader().getResourceAsStream("config.properties");
-            in = new FileReader("E:\\workspace\\code_world\\elasticjob_play\\src\\main\\resources\\application.properties");
+            in = new FileReader("E:\\workspace\\marcus-spring-practice\\elasticjob_play\\src\\main\\resources\\application.properties");
             props.load(in);
         } catch (FileNotFoundException e) {
             e.printStackTrace();

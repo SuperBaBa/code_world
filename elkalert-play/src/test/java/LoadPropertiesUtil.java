@@ -23,7 +23,7 @@ public class LoadPropertiesUtil {
         FileReader is = null;
         try {
             String path = Thread.currentThread().getContextClassLoader().getResource("").getPath();
-            is = new FileReader("E:\\workspace\\code_world\\elasticjob_play\\src\\main\\resources\\application.properties");
+            is = new FileReader("E:\\workspace\\marcus-spring-practice\\elasticjob_play\\src\\main\\resources\\application.properties");
             properties.load(is);
         } catch (IOException e) {
             logger.error(e.getMessage(), e);

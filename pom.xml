@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.jarvis</groupId>
-    <artifactId>code_world</artifactId>
+    <artifactId>marcus-spring-practice</artifactId>
     <packaging>pom</packaging>
     <version>1.0</version>
     <!--版本资源管理-->

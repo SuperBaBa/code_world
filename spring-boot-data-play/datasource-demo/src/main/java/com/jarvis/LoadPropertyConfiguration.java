@@ -39,7 +39,7 @@ public class LoadPropertyConfiguration {
         PropertySourcesPlaceholderConfigurer configurer = new PropertySourcesPlaceholderConfigurer();
         YamlPropertiesFactoryBean yaml = new YamlPropertiesFactoryBean();
 //        yaml.setResources(new ClassPathResource("myconfig.yml"));
-        yaml.setResources(new FileSystemResource("E:\\workspace\\code_world\\spring-family_play\\datasource-demo\\src\\main\\resources\\person.yml"));
+        yaml.setResources(new FileSystemResource("E:\\workspace\\marcus-spring-practice\\spring-family_play\\datasource-demo\\src\\main\\resources\\person.yml"));
         configurer.setProperties(yaml.getObject());
         return configurer;
     }*/

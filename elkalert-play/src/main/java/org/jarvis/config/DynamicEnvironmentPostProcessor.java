@@ -19,7 +19,7 @@ public class DynamicEnvironmentPostProcessor implements EnvironmentPostProcessor
     @Override
     public void postProcessEnvironment(ConfigurableEnvironment environment, SpringApplication application) {
         try {
-            InputStreamReader in = new FileReader(new File("E:\\workspace\\code_world\\elasticjob_play\\src\\main\\resources\\application.properties"));
+            InputStreamReader in = new FileReader(new File("E:\\workspace\\marcus-spring-practice\\elasticjob_play\\src\\main\\resources\\application.properties"));
             Properties properties = new Properties();
             properties.load(in);
             PropertiesPropertySource propertySource = new PropertiesPropertySource("dynamic", properties);
