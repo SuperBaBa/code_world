@@ -34,6 +34,7 @@
     <dependency>
         <groupId>org.projectlombok</groupId>
         <artifactId>lombok</artifactId>
+        <optional>true</optional>
     </dependency>
     <!--内存数据库依然需要引入-->
     <dependency>

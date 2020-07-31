@@ -11,8 +11,4 @@
 
     <artifactId>datasource-demo</artifactId>
     <version>alpha</version>
-
-    <dependencies>
-
-    </dependencies>
 </project>

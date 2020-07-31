@@ -16,7 +16,7 @@ import javax.sql.DataSource;
  * 1. 引入druid-spring-boot-starter，能够配置druid参数并能调用FilterEvent
  * 2. 集成FilterAdapter实现Filter，在这个抽象类中还定义了很多前后的方法，可以进行自定义修改
  * 3. 在META-INF/druid-filter.properties中增加自定义的Filter配置
- *
+ * <p>
  * 在后面使用SpringBoot自动配置数据源时，无论在数据源配置还是链接建立都会调用druid以及自定义的Filter
  * author:tennyson date:2020/7/4
  **/
@@ -35,7 +35,8 @@ public class DruidDemoApplication implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
+        log.info(dataSourceProperties.toString());
         log.info(dataSource.toString());
     }
 }

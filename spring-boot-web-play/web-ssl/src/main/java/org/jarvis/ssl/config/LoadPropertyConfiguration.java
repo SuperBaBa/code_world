@@ -1,10 +1,13 @@
-package com.jarvis;
+package org.jarvis.ssl.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
 /**
+ * 通过前缀读取资源目录下的文件
+ * 然后将值赋值给对应的属性
+ * 分别有 yml 和 properties 两种文件
  * author:marcus date:2020/7/16
  **/
 
@@ -16,7 +19,7 @@ import org.springframework.context.annotation.PropertySource;
 //@ImportResource(locations = {"classpath*:person.properties"})
 public class LoadPropertyConfiguration {
     private String second;
-    private String first = "data.sql";
+    private String first = "initialized.value";
 
     public String getSecond() {
         return second;
