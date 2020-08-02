@@ -8,6 +8,12 @@
     <artifactId>marcus-spring-practice</artifactId>
     <packaging>pom</packaging>
     <version>1.0</version>
+    <modules>
+        <module>spring-boot-web-play</module>
+        <module>spring-boot-data-play</module>
+        <module>spring-cloud-alibaba-play</module>
+        <module>spring-cloud-netfix-play</module>
+    </modules>
     <!--版本资源管理-->
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -24,6 +30,10 @@
     </organization>
     <!--日志依赖-->
     <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
         <!--spring-boot启动器-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
