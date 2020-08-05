@@ -5,6 +5,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import reactor.core.publisher.Flux;
+import reactor.core.scheduler.Schedulers;
 
 /**
  * author:tennyson  date:2020/8/1
@@ -18,17 +19,18 @@ public class ReactorDemoApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Flux.range(1, 6)
+        Flux.range(1, 6) //创建一个序列
+				.publishOn(Schedulers.newElastic("yto")) //提供一个任务调用，用于request、complete、error
                 .doOnRequest(n -> log.info("Request {} number", n)) // 注意顺序造成的区别
-//				.publishOn(Schedulers.elastic())
                 .doOnComplete(() -> log.info("Publisher COMPLETE 1"))
+                .onBackpressureBuffer()
                 .map(i -> {
                     log.info("Publish {}, {}", Thread.currentThread(), i);
-                    return 10 / (i - 3);
-//					return i;
-                })
+//                    return 10 / (i - 3);
+					return i;
+                })// 通过Flux使用同步的方式来对序列的每一项进行转换
                 .doOnComplete(() -> log.info("Publisher COMPLETE 2"))
-//				.subscribeOn(Schedulers.single())
+				.subscribeOn(Schedulers.single())
 //				.onErrorResume(e -> {
 //					log.error("Exception {}", e.toString());
 //					return Mono.just(-1);
