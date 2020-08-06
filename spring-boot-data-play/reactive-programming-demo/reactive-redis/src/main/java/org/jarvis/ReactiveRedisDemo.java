@@ -2,13 +2,11 @@ package org.jarvis;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-import org.springframework.data.redis.connection.ReactiveRedisConnectionFactory;
 import org.springframework.data.redis.core.ReactiveHashOperations;
 import org.springframework.data.redis.core.ReactiveStringRedisTemplate;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -30,17 +28,13 @@ public class ReactiveRedisDemo implements ApplicationRunner {
     @Autowired
     private JdbcTemplate jdbcTemplate;
     @Autowired
-    @Qualifier("reactiveRedisTemplate")
-    private ReactiveStringRedisTemplate redisTemplate;
+    private ReactiveStringRedisTemplate redisTemplate;//此处是springboot自动配置的RedisTemplate
 
     public static void main(String[] args) {
         SpringApplication.run(ReactiveRedisDemo.class, args);
     }
 
-    @Bean
-    ReactiveStringRedisTemplate reactiveRedisTemplate(ReactiveRedisConnectionFactory factory) {
-        return new ReactiveStringRedisTemplate(factory);
-    }
+
 
     @Override
     public void run(ApplicationArguments args) throws Exception {

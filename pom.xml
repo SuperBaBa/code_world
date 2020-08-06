@@ -28,44 +28,25 @@
         <name>Jarvis Corporation</name>
         <url>https://www.cecilia-wear.cn/</url>
     </organization>
-    <!--日志依赖-->
-    <dependencies>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-        <!--spring-boot启动器-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-        <!--spring单元测试-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <!--spring-actuator执行器，通过配置endpoint查看spring项目状态，包括bean容器的初始化bean-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-        <!--kafkaAppender依赖-->
-        <dependency>
-            <groupId>com.github.danielwegener</groupId>
-            <artifactId>logback-kafka-appender</artifactId>
-            <version>0.2.0-RC1</version>
-        </dependency>
-        <!--Logstash编码-->
-        <dependency>
-            <groupId>net.logstash.logback</groupId>
-            <artifactId>logstash-logback-encoder</artifactId>
-            <version>5.0</version>
-        </dependency>
-    </dependencies>
-
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-boot-starter</artifactId>
+                <version>3.0.0</version>
+            </dependency>
+            <!--kafkaAppender依赖-->
+            <dependency>
+                <groupId>com.github.danielwegener</groupId>
+                <artifactId>logback-kafka-appender</artifactId>
+                <version>0.2.0-RC1</version>
+            </dependency>
+            <!--Logstash编码-->
+            <dependency>
+                <groupId>net.logstash.logback</groupId>
+                <artifactId>logstash-logback-encoder</artifactId>
+                <version>5.0</version>
+            </dependency>
             <!--fastjson依赖-->
             <dependency>
                 <groupId>com.alibaba</groupId>
@@ -128,6 +109,7 @@
                 <profileActive>dev</profileActive>
             </properties>
             <activation>
+                <jdk>1.8</jdk>
                 <activeByDefault>true</activeByDefault>
             </activation>
         </profile>
@@ -144,6 +126,10 @@
             <id>spring</id>
             <url>https://maven.aliyun.com/repository/spring</url>
             <releases>
+                <!--当 Maven 验证构件校验文件失败时该怎么做：ignore (忽略) ，fail (失败) ，或 warn (警告) -->
+                <checksumPolicy>fail</checksumPolicy>
+                <!--该元素指定更新发生的频率，Maven 会比较本地 POM 和远程 POM 的时间戳；always(一直)，daily(默认，每日)，interval：X (X 是以分钟为单位的时间间隔)，never（从不）-->
+                <updatePolicy>daily</updatePolicy>
                 <enabled>true</enabled>
             </releases>
             <snapshots>
@@ -169,9 +155,9 @@
             <releases>
                 <enabled>true</enabled>
             </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
+            <!-- <snapshots>
+                 <enabled>true</enabled>
+             </snapshots>-->
         </repository>
     </repositories>
 </project>

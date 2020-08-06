@@ -37,3 +37,5 @@
     </dependencies>
 </dependencyManagement>
 ```
+在代码进行测试时常使用`ApplicationRunner`和`CommandLineRunner`在主类的main方法后进行调用，即在Spring的ApplicationContext初始化完成之后执行
+二者的区别在于获取环境变量或启动参数，一个是经过封装，另一个可直接获取。
