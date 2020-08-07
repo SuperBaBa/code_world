@@ -13,6 +13,12 @@
         <module>spring-boot-data-play</module>
         <module>spring-cloud-alibaba-play</module>
         <module>spring-cloud-netfix-play</module>
+        <module>logback-play</module>
+        <module>kafka-play</module>
+        <module>java8-play</module>
+        <module>elkalert-play</module>
+        <module>elasticsearch-play</module>
+        <module>concurrent-paly</module>
     </modules>
     <!--版本资源管理-->
     <properties>

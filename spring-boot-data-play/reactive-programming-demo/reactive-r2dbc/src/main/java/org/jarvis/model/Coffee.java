@@ -10,7 +10,7 @@ import org.springframework.data.relational.core.mapping.Table;
 import java.util.Date;
 
 /**
- * author:marcus date:2020/8/4
+ * @author marcus @date:2020/8/4
  **/
 @Data
 @Table("t_coffee")

@@ -17,10 +17,11 @@ import java.util.Arrays;
 /**
  * initialize customized {@link R2dbcCustomConversions} and {@link ConnectionFactory}
  * 集成抽象配置类，gain sql Dialect Object by invoke method getDialect
- * author:marcus date:2020/8/6
+ * @author marcus @date 2020/8/6
  **/
 @Configuration
 public class R2dbcConfiguration extends AbstractR2dbcConfiguration {
+    @Override
     @Bean
     public ConnectionFactory connectionFactory() {
         return new H2ConnectionFactory(
@@ -35,6 +36,7 @@ public class R2dbcConfiguration extends AbstractR2dbcConfiguration {
      *
      * @return Customized convertor of R2dbc
      */
+    @Override
     @Bean
     public R2dbcCustomConversions r2dbcCustomConversions() {
         Dialect dialect = getDialect(connectionFactory());

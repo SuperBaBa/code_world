@@ -12,6 +12,9 @@ import reactor.core.publisher.Flux;
 
 import java.util.concurrent.CountDownLatch;
 
+/**
+ * @author marcus
+ */
 @SpringBootApplication
 @Slf4j
 @EnableR2dbcRepositories

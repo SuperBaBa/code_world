@@ -2,10 +2,13 @@ package org.jarvis.ssl;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import springfox.documentation.oas.annotations.EnableOpenApi;
 
 @SpringBootApplication
-public class SslPlayApplication {
+@EnableOpenApi
+public class SSLPlayApplication {
     public static void main(String[] args) {
-        SpringApplication.run(SslPlayApplication.class, args);
+        SpringApplication.run(SSLPlayApplication.class, args);
     }
+
 }
