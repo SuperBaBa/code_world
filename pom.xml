@@ -19,6 +19,9 @@
         <module>elkalert-play</module>
         <module>elasticsearch-play</module>
         <module>concurrent-paly</module>
+        <module>rocketmq-play</module>
+        <module>rocksdb-play</module>
+        <module>data-transfer-object-common</module>
     </modules>
     <!--版本资源管理-->
     <properties>
@@ -36,6 +39,22 @@
     </organization>
     <dependencyManagement>
         <dependencies>
+            <!--jackson依赖引入和管理-->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>2.9.5</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jadira.usertype</groupId>
+                <artifactId>usertype.core</artifactId>
+                <version>6.0.1.GA</version>
+            </dependency>
+            <dependency>
+                <groupId>org.joda</groupId>
+                <artifactId>joda-money</artifactId>
+                <version>1.0.1</version>
+            </dependency>
             <dependency>
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-boot-starter</artifactId>
@@ -129,7 +148,7 @@
     <!--阿里云仓库-->
     <repositories>
         <repository>
-            <id>spring</id>
+            <id>spring-ali</id>
             <url>https://maven.aliyun.com/repository/spring</url>
             <releases>
                 <!--当 Maven 验证构件校验文件失败时该怎么做：ignore (忽略) ，fail (失败) ，或 warn (警告) -->
@@ -143,7 +162,7 @@
             </snapshots>
         </repository>
         <repository>
-            <id>maven-ali</id>
+            <id>public-ali</id>
             <url>https://maven.aliyun.com/repository/public</url>
             <releases>
                 <enabled>true</enabled>
@@ -154,16 +173,20 @@
                 <checksumPolicy>fail</checksumPolicy>
             </snapshots>
         </repository>
+        <!-- Milestone的依赖不在主仓库里 -->
         <repository>
             <id>spring-milestone</id>
             <name>Spring Maven MILESTONE Repository</name>
-            <url>http://repo.spring.io/libs-milestone</url>
+            <url>https://repo.spring.io/libs-milestone/</url>
+            <layout>default</layout>
             <releases>
+                <updatePolicy>always</updatePolicy>
                 <enabled>true</enabled>
             </releases>
-            <!-- <snapshots>
-                 <enabled>true</enabled>
-             </snapshots>-->
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
         </repository>
+
     </repositories>
 </project>

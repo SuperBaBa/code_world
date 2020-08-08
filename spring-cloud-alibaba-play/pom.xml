@@ -14,6 +14,9 @@
     <properties>
         <spring-cloud-alibaba.version>2.2.1.RELEASE</spring-cloud-alibaba.version>
     </properties>
+    <modules>
+        <module>nacos-play</module>
+    </modules>
     <dependencyManagement>
         <dependencies>
             <dependency>

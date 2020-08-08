@@ -12,11 +12,26 @@
 
     <artifactId>spring-boot-data-play</artifactId>
     <version>0.0.1</version>
+    <modules>
+        <module>performance-watch-aspect-demo</module>
+        <module>reactive-programming-demo</module>
+        <module>multi-datasource-demo</module>
+        <module>jpa-demo</module>
+        <module>database-error-code-demo</module>
+        <module>datasource-demo</module>
+        <module>jdbc-template-demo</module>
+        <module>mango-demo</module>
+        <module>druid-demo</module>
+        <module>transaction-demo</module>
+        <module>mybatis-demo</module>
+        <module>mybatis-generator-demo</module>
+        <module>pagehelper-demo</module>
+    </modules>
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -29,6 +44,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>com.h2database</groupId>
@@ -36,30 +52,19 @@
             <scope>runtime</scope>
         </dependency>
     </dependencies>
-    <!--<dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-parent</artifactId>
-                <version>2.3.2.RELEASE</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>-->
+
     <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>2.3.1.RELEASE</version>
-                <executions>
+               <!-- <executions>
                     <execution>
                         <goals>
                             <goal>repackage</goal>
                         </goals>
                     </execution>
-                </executions>
+                </executions>-->
             </plugin>
         </plugins>
     </build>
