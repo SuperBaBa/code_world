@@ -3,7 +3,6 @@
     <contextName>logback-spring-demo-dev</contextName>
     <springProperty scope="context" name="log.path" source="log.location"/>
     <springProperty scope="context" name="projectname" source="spring.application.name"/>
-    <springProperty scope="context" name="kafka.broker.servers" source="bootstrap.servers"/>
     <!--日志输出格式化-->
     <property name="pattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg %n"/>
     <!--日志输出格式化，且带颜色-->
@@ -54,46 +53,6 @@
             <pattern>${pattern}</pattern>
         </encoder>
     </appender>
-
-    <!--日志输出kafka-->
-    <appender name="kafkaAppender" class="com.github.danielwegener.logback.kafka.KafkaAppender">
-        <encoder charset="UTF-8" class="net.logstash.logback.encoder.LogstashEncoder">
-            <fieldNames class="net.logstash.logback.fieldnames.ShortenedFieldNames">
-                <timestamp>logAppenderTime</timestamp>
-                <levelValue>[ignore]</levelValue>
-                <version>[ignore]</version>
-                <level>logLevel</level>
-                <logger>packageName</logger>
-                <thread>threadName</thread>
-            </fieldNames>
-            <timestampPattern>yyyy-MM-dd HH:mm:ss.SSS</timestampPattern>
-            <timeZone>GMT+0:00</timeZone>
-            <customFields>{"appId":"${projectname}","hostName":"${HOSTNAME}"}</customFields>
-            <enableContextMap>true</enableContextMap>
-            <includeMdc>true</includeMdc>
-            <includeContext>false</includeContext>
-            <throwableConverter class="net.logstash.logback.stacktrace.ShortenedThrowableConverter">
-                <maxDepthPerThrowable>30</maxDepthPerThrowable>
-                <rootCauseFirst>true</rootCauseFirst>
-            </throwableConverter>
-        </encoder>
-        <topic>kafka-elk-topic</topic>
-        <!--key生成策略-->
-        <keyingStrategy class="com.github.danielwegener.logback.kafka.keying.NoKeyKeyingStrategy"/>
-        <!--发送策略-->
-        <deliveryStrategy class="com.github.danielwegener.logback.kafka.delivery.AsynchronousDeliveryStrategy"/>
-        <producerConfig>bootstrap.servers=${kafka.broker.servers}</producerConfig>
-        <producerConfig>acks=0</producerConfig>
-        <appender-ref ref="CONSOLE"/>
-    </appender>
-
-    <appender name="logstashASYNC" class="ch.qos.logback.classic.AsyncAppender">
-        <!--        <discardingThreshold>0</discardingThreshold>-->
-        <!--        <queueSize>4096</queueSize>-->
-        <!--        <includeCallerData>true</includeCallerData>-->
-        <appender-ref ref="kafkaAppender"/>
-    </appender>
-
 
     <root level="INFO">
         <appender-ref ref="CONSOLE-WITH-COLOR"/>

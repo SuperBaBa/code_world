@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration;
+import org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration;
 
 /**
  * 原本打算配置多个数据源，每个数据源针对不同的数据库进行操作。 FirstDao=> FIST SecondDao=> SECOND
@@ -15,8 +18,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * author:tennyson date:2020/7/4
  **/
 @SpringBootApplication(
-//        exclude = {DataSourceAutoConfiguration.class, JdbcTemplateAutoConfiguration.class,
-//                DataSourceTransactionManagerAutoConfiguration.class}
+        exclude = {DataSourceAutoConfiguration.class, JdbcTemplateAutoConfiguration.class,
+                DataSourceTransactionManagerAutoConfiguration.class}
 )
 @Slf4j
 public class JdbcTemplateDemoApplication implements CommandLineRunner {
