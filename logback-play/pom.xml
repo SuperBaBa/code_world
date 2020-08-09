@@ -13,4 +13,10 @@
     <properties>
         <elasticsearch.version>7.4.0</elasticsearch.version>
     </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+    </dependencies>
 </project>

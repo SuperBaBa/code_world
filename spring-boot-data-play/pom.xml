@@ -3,20 +3,35 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-    <artifactId>marcus-spring-practice</artifactId>
-    <groupId>org.jarvis</groupId>
-    <version>1.0</version>
-</parent>
+        <artifactId>marcus-spring-practice</artifactId>
+        <groupId>org.jarvis</groupId>
+        <version>1.0</version>
+    </parent>
     <packaging>pom</packaging>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>spring-boot-data-play</artifactId>
     <version>0.0.1</version>
+    <modules>
+        <module>performance-watch-aspect-demo</module>
+        <module>reactive-programming-demo</module>
+        <module>multi-datasource-demo</module>
+        <module>jpa-demo</module>
+        <module>database-error-code-demo</module>
+        <module>datasource-demo</module>
+        <module>jdbc-template-demo</module>
+        <module>mango-demo</module>
+        <module>druid-demo</module>
+        <module>transaction-demo</module>
+        <module>mybatis-demo</module>
+        <module>mybatis-generator-demo</module>
+        <module>pagehelper-demo</module>
+    </modules>
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -29,6 +44,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>com.h2database</groupId>
@@ -42,13 +58,13 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <executions>
+               <!-- <executions>
                     <execution>
                         <goals>
                             <goal>repackage</goal>
                         </goals>
                     </execution>
-                </executions>
+                </executions>-->
             </plugin>
         </plugins>
     </build>

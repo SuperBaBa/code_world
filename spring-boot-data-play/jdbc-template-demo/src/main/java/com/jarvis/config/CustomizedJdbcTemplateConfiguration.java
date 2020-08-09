@@ -14,14 +14,14 @@ import javax.sql.DataSource;
 @Configuration
 public class CustomizedJdbcTemplateConfiguration {
     @Bean
-    public SimpleJdbcInsert simpleJdbcInsert(JdbcTemplate jdbcTemplate) {
+    public SimpleJdbcInsert simpleJdbcInsert( JdbcTemplate jdbcTemplate) {
         return new SimpleJdbcInsert(jdbcTemplate)
                 .withTableName("FIRST")
                 .usingGeneratedKeyColumns("ID");
     }
 
     @Bean
-    public NamedParameterJdbcTemplate namedParameterJdbcTemplate(DataSource dataSource) {
+    public NamedParameterJdbcTemplate namedParameterJdbcTemplate( DataSource dataSource) {
         return new NamedParameterJdbcTemplate(dataSource);
     }
 }

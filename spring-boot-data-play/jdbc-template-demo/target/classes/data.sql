@@ -1,5 +1,0 @@
--- 初始化内存数据库的数据
-INSERT INTO `FIRST` (ID,USERNAME) VALUES (1,'yto');
-INSERT INTO `FIRST` (ID,USERNAME) VALUES (2,'yto iron man');
-INSERT INTO `FIRST` (ID,USERNAME) VALUES (5,'zto monster');
-INSERT INTO `SECOND` (JOB) VALUES ('最强工程师');
