@@ -1,0 +1,115 @@
+<configuration scan="true" scanPeriod="10 seconds" debug="false">
+    <springProperty scope="context" name="kafka.broker.servers" source="bootstrap.servers"/>
+    <springProperty scope="context" name="projectname" source="spring.application.name"/>
+
+    <property name="pattern-color"
+              value="%yellow(%d{yyyy-MM-dd HH:mm:ss.SSS}) [%thread] %highlight(%-5level) %green(%logger{50}) - %highlight(%msg) %n"/>
+
+    <!--<property name="log.path" value="logs/${projectname}"/>-->
+    <!-- 控制台输出-带颜色 -->
+    <appender name="CONSOLE-WITH-COLOR" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${pattern-color}</pattern>
+        </encoder>
+    </appender>
+    <appender name="STDOUT-INCLUDECALLERDATA" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>LOCAL_SYSTEM_TIME=[%d{yyyy-MM-dd HH:mm:ss.SSS}],THREAD=[%thread],LOG_LEVEL=[%-5level],CLASS=[%class{35}.%M:%L],%m%n</pattern>
+        </encoder>
+    </appender>
+    <!--控制台日志输出-->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                %red([%d{yyyy-MM-dd HH:mm:ss.SSS}]) %cyan(${LOG_LEVEL_PATTERN:-%p}) ${PID:- } %magenta(${projectname}) [%t] %green([%logger]):%highlight(%m%n)
+            </pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <appender name="consoleASYNC" class="ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>0</discardingThreshold>
+        <queueSize>4096</queueSize>
+        <includeCallerData>true</includeCallerData>
+        <appender-ref ref="STDOUT"/>
+    </appender>
+
+    <!--本地日志输出-->
+    <appender name="rollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>log/${projectname}/logback.log</file>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>log/${projectname}/logback.%d{yyyy-MM-dd}.%i.log.zip</fileNamePattern>
+            <maxHistory>7</maxHistory>
+            <totalSizeCap>10GB</totalSizeCap>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>1GB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <ImmediateFlush>true</ImmediateFlush>
+            <pattern>
+                [%d{yyyy-MM-dd HH:mm:ss.SSS}] ${LOG_LEVEL_PATTERN:-%p} ${PID:- } ${projectname} [%t] [%logger]:%m%n
+            </pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <appender name="rollingFileASYNC" class="ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>0</discardingThreshold>
+        <queueSize>4096</queueSize>
+        <includeCallerData>true</includeCallerData>
+        <appender-ref ref="rollingFile"/>
+    </appender>
+
+    <!--日志输出kafka-->
+    <appender name="kafkaAppender" class="com.github.danielwegener.logback.kafka.KafkaAppender">
+        <encoder charset="UTF-8" class="net.logstash.logback.encoder.LogstashEncoder">
+            <fieldNames class="net.logstash.logback.fieldnames.ShortenedFieldNames">
+                <timestamp>logAppenderTime</timestamp>
+                <levelValue>[ignore]</levelValue>
+                <version>[ignore]</version>
+                <level>logLevel</level>
+                <logger>packageName</logger>
+                <thread>threadName</thread>
+            </fieldNames>
+            <timestampPattern>yyyy-MM-dd HH:mm:ss.SSS</timestampPattern>
+            <timeZone>GMT+0:00</timeZone>
+            <customFields>
+                {"captainWorkerNo":"01780486","captainName":"周玉龙","captainMobilePhone":"18702111752","captainEmail":"01780486@yto.net.cn","appId":"${projectname}","hostName":"${HOSTNAME}"}
+            </customFields>
+            <enableContextMap>true</enableContextMap>
+            <includeMdc>true</includeMdc>
+            <includeContext>false</includeContext>
+            <throwableConverter class="net.logstash.logback.stacktrace.ShortenedThrowableConverter">
+                <maxDepthPerThrowable>30</maxDepthPerThrowable>
+                <rootCauseFirst>true</rootCauseFirst>
+            </throwableConverter>
+            <includeCallerData>true</includeCallerData>
+        </encoder>
+        <topic>basicdata-waybill-center-log-topic</topic>
+        <!--key生成策略-->
+        <keyingStrategy class="com.github.danielwegener.logback.kafka.keying.NoKeyKeyingStrategy"/>
+        <!--发送策略-->
+        <deliveryStrategy class="com.github.danielwegener.logback.kafka.delivery.AsynchronousDeliveryStrategy"/>
+        <producerConfig>bootstrap.servers=${kafka.broker.servers}</producerConfig>
+        <producerConfig>acks=0</producerConfig>
+    </appender>
+
+    <appender name="logstashASYNC" class="ch.qos.logback.classic.AsyncAppender">
+                      <discardingThreshold>0</discardingThreshold>
+                      <queueSize>4096</queueSize>
+                      <includeCallerData>true</includeCallerData>
+        <appender-ref ref="kafkaAppender"/>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE-WITH-COLOR"/>
+        <appender-ref ref="rollingFileASYNC"/>
+        <appender-ref ref="logstashASYNC"/>
+    </root>
+
+</configuration>
+
