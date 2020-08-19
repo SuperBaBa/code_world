@@ -1,1 +1,1 @@
-org.springframework.boot.env.EnvironmentPostProcessor=org.jarvis.config.DynamicEnvironmentPostProcessor
+org.springframework.boot.env.EnvironmentPostProcessor=org.jarvis.DynamicEnvironmentPostProcessor

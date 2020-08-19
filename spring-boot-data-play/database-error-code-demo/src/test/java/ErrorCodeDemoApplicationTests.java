@@ -1,6 +1,6 @@
-import com.jarvis.DataBaseErrorCode;
-import com.jarvis.exception.CustomizeDuplicatedKeyException;
 import lombok.extern.slf4j.Slf4j;
+import org.jarvis.DataBaseErrorCode;
+import org.jarvis.exception.CustomizeDuplicatedKeyException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

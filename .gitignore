@@ -40,3 +40,5 @@ HELP.md
 *.tar
 *.tar.gz
 **/target/**
+
+/out/

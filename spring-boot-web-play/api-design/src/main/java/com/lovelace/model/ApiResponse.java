@@ -16,15 +16,20 @@ import java.util.Map;
 @Data
 @Slf4j
 public class ApiResponse<T> {
-    /** 结果 */
+    /**
+     * 结果
+     */
     private ApiResult result;
 
-    /** 数据 */
+    /**
+     * 数据
+     */
     private T data;
 
-    /** 签名 */
+    /**
+     * 签名
+     */
     private String sign;
-
 
     public static <T> ApiResponse success(T data) {
         return response(ApiCodeEnum.SUCCESS.getCode(), ApiCodeEnum.SUCCESS.getMsg(), data);

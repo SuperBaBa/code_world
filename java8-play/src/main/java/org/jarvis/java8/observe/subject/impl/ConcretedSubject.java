@@ -4,7 +4,6 @@ import org.jarvis.java8.observe.observer.Observer;
 import org.jarvis.java8.observe.subject.Subject;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 /**

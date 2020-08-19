@@ -9,21 +9,24 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <properties>
-        <java.version>1.8</java.version>
-    </properties>
     <artifactId>database-error-code-demo</artifactId>
-    <version>alpha</version>
+    <version>0.0.1</version>
     <dependencies>
+
         <dependency>
-            <groupId>org.jarvis</groupId>
-            <artifactId>data-transfer-object-common</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 </project>

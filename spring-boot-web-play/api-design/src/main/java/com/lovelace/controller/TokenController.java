@@ -4,6 +4,7 @@ import com.lovelace.annotation.NotRepeatSubmit;
 import com.lovelace.model.*;
 import com.lovelace.util.MD5Util;
 import lombok.extern.slf4j.Slf4j;
+import org.edwin.annotation.AspectLog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
@@ -37,11 +38,12 @@ public class TokenController {
      * @param sign
      * @return
      */
+    @AspectLog
     @PostMapping("/api_token")
     public ApiResponse<AccessToken> apiToken(String appId, @RequestHeader("timestamp") String timestamp, @RequestHeader("sign") String sign) {
         Assert.isTrue(!StringUtils.isEmpty(appId) && !StringUtils.isEmpty(timestamp) && !StringUtils.isEmpty(sign), "参数错误");
 
-        long reqeustInterval = System.currentTimeMillis() - Long.valueOf(timestamp);
+        long reqeustInterval = System.currentTimeMillis() - Long.parseLong(timestamp);
         Assert.isTrue(reqeustInterval < 5 * 60 * 1000, "请求过期，请重新请求");
 
         // 1. 根据appId查询数据库获取appSecret

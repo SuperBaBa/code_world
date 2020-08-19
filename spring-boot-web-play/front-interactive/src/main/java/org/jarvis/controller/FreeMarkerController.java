@@ -1,6 +1,6 @@
 package org.jarvis.controller;
 
-import org.jarvis.config.Resource;
+import org.jarvis.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

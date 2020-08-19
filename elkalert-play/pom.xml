@@ -62,7 +62,7 @@
             <!--                        <manifest>-->
             <!--                            <addClasspath>true</addClasspath>-->
             <!--                            <classpathPrefix>lib/</classpathPrefix>-->
-            <!--                            <mainClass>org.jarvis.StaticScheduleTaskApplication</mainClass>-->
+            <!--                            <mainClass>StaticScheduleTaskApplication</mainClass>-->
             <!--                        </manifest>-->
             <!--                        <manifestEntries>-->
             <!--                            <Class-Path>./lib/*.jar</Class-Path>-->
