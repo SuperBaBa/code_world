@@ -18,6 +18,12 @@ public class CoffeeOrderService {
     @Autowired
     private DatabaseClient client;
 
+    /**
+     * 新增一个coffee订单，并返回一个订单ID
+     *
+     * @param order
+     * @return
+     */
     public Mono<Long> create(CoffeeOrder order) {
         return repository.save(order);
     }

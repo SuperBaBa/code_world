@@ -24,6 +24,11 @@ public class CoffeeService {
     @Autowired
     private ReactiveRedisTemplate<String, Coffee> redisTemplate;
 
+    /**
+     * 此处使用的是
+     *
+     * @return
+     */
     public Flux<Boolean> initCache() {
         return coffeeRepository.findAll()
                 .flatMap(c -> redisTemplate.opsForValue()

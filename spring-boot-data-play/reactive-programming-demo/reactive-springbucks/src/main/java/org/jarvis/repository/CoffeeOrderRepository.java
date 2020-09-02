@@ -17,8 +17,16 @@ import java.sql.Timestamp;
 public class CoffeeOrderRepository {
     @Autowired
     private DatabaseClient databaseClient;
+
+    /**
+     * 新建coffee订单并关联order与coffee
+     *
+     * @param order
+     * @return
+     */
     public Mono<Long> save(CoffeeOrder order) {
-       return databaseClient.insert().into("T_COFFEE_ORDER")
+        //TODO 如果出现事务问题，是否会回滚
+        return databaseClient.insert().into("T_COFFEE_ORDER")
                 .value("customer", order.getCustomer())
                 .value("state", order.getState().ordinal())
                 .value("create_time", new Timestamp(order.getCreateTime().getTime()))

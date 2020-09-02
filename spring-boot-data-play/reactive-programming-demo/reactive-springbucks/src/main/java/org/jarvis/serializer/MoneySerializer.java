@@ -8,6 +8,8 @@ import org.joda.money.Money;
 import java.io.IOException;
 
 /**
+ * 序列化
+ *
  * @author tennyson
  * @date 2020/8/8-22:53
  */

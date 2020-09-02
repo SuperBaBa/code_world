@@ -12,5 +12,16 @@
 
     <artifactId>front-interactive</artifactId>
 
-
+    <dependencies>
+        <!--加入thymeleaf依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <!--加入FreeMarker依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-freemarker</artifactId>
+        </dependency>
+    </dependencies>
 </project>

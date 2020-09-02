@@ -28,17 +28,17 @@ public class ReactiveRunner implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-//        coffeeService.initCache()
-//                .then(
-//                        coffeeService.findOneCoffee("mocha")
-//                                .flatMap(c -> {
-//                                    CoffeeOrder order = createOrder("Li Lei", c);
-//                                    return orderService.create(order);
-//                                })
-//                                .doOnError(t -> log.error("error", t)))
-//                .subscribe(o -> log.info("Create Order: {}", o));
-//        log.info("After Subscribe");
-//        Thread.sleep(5000);
+        coffeeService.initCache()
+                .then(
+                        coffeeService.findOneCoffee("mocha")
+                                .flatMap(c -> {
+                                    CoffeeOrder order = createOrder("Li Lei", c);
+                                    return orderService.create(order);
+                                })
+                                .doOnError(t -> log.error("error", t)))
+                .subscribe(o -> log.info("Create Order: {}", o));
+        log.info("After Subscribe");
+        Thread.sleep(5000);
     }
 
     private CoffeeOrder createOrder(String customer, Coffee... coffee) {

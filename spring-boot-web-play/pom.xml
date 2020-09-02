@@ -15,13 +15,9 @@
         <module>front-interactive</module>
         <module>web-ssl</module>
         <module>grafana-webhook</module>
+        <module>simple-web</module>
     </modules>
     <dependencies>
-        <!--spring单元测试-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-        </dependency>
         <!--spring-actuator执行器，通过配置endpoint查看spring项目状态，包括bean容器的初始化bean-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -35,16 +31,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <!--加入thymeleaf依赖-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
-        </dependency>
-        <!--加入FreeMarker依赖-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-freemarker</artifactId>
-        </dependency>
+
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
