@@ -5,6 +5,9 @@ import org.hibernate.annotations.Parameter;
 import org.hibernate.annotations.Type;
 import org.joda.money.Money;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 /**
  * @author marcus
  * @date 2020/8/21-14:36
@@ -15,6 +18,8 @@ import org.joda.money.Money;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
+@Entity
+@Table(name = "t_coffee")
 public class Coffee extends BaseEntity {
     private String name;
     @Type(type = "org.jadira.usertype.moneyandcurrency.joda.PersistentMoneyMinorAmount",

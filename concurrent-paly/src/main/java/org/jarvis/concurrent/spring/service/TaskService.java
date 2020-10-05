@@ -8,6 +8,7 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
@@ -64,5 +65,24 @@ public class TaskService {
         }
         // 消息汇总
         return new AsyncResult<>(String.format("这个是第{%s}个异步调用的证书", i));
+    }
+
+    @Async
+//    public Future<String> asyncMethodWithReturnType(String name) {
+    public Future<List<String>> asyncMethodWithReturnType(String name, List<String> rustList) {
+        System.out.println("Execute method asynchronously - " + Thread.currentThread().getName() + name);
+        try {
+            Thread.sleep((long) (Math.random() * 10000));
+            rustList.add(Thread.currentThread().getName() + name);
+            return new AsyncResult<List<String>>(rustList);
+//     return new AsyncResult<String>("hello world !!!!:  params:"+name);
+        } catch (InterruptedException e) {
+            //
+        }
+        return null;
+    }
+
+    public static void main(String[] args) {
+        System.out.println();
     }
 }

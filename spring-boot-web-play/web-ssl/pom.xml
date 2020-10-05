@@ -14,10 +14,9 @@
     <dependencies>
         <!--自定义的logback-spirng-boot-starter-->
         <dependency>
-            <groupId>org.edwin</groupId>
-            <artifactId>logback-play-spring-boot-starter</artifactId>
-            <version>0.0.1</version>
-            <scope>compile</scope>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
     <build>

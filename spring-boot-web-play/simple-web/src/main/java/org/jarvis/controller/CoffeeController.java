@@ -5,6 +5,7 @@ import org.jarvis.model.Coffee;
 import org.jarvis.service.CoffeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -17,7 +18,8 @@ public class CoffeeController {
     @Autowired
     private CoffeeService coffeeService;
 
+    @PostMapping(value = "increased")
     public Coffee addCoffeeWithoutBindResult(NewCoffeeRequest coffeeRequest) {
-        return coffeeService.save(coffeeRequest);
+        return coffeeService.save(coffeeRequest.getName(), coffeeRequest.getPrice());
     }
 }

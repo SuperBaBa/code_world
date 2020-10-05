@@ -2,7 +2,6 @@ package org.jarvis.ssl.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.extern.slf4j.Slf4j;
-import org.edwin.annotation.AspectLog;
 import org.jarvis.ssl.service.ProcessParamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,7 +27,6 @@ public class MatTestKitController {
         return processParamService.processParam(waybill, channel);
     }
 
-    @AspectLog
     @GetMapping("/hey")
     public String sayHello(String name) {
 //        log.info(logService.getName());

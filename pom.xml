@@ -9,7 +9,9 @@
     <packaging>pom</packaging>
     <version>1.0</version>
     <modules>
+        <!--spring-web项目-->
         <module>spring-boot-web-play</module>
+        <!--spring-data项目练习，使用了jpa的java持久化API-->
         <module>spring-boot-data-play</module>
         <module>spring-cloud-alibaba-play</module>
         <module>spring-cloud-netfix-play</module>
@@ -22,13 +24,18 @@
         <module>rocketmq-play</module>
         <module>rocksdb-play</module>
         <module>data-transfer-object-common</module>
+        <!--大众点评监控平台central-application-tracking 集成-->
+        <module>central-application-tracking-play</module>
     </modules>
     <!--版本资源管理-->
     <properties>
+        <!--docker打包镜像前缀，仓库名和命名空间-->
+        <docker.image.prefix>registry.aliyuncs.com/linhuatest</docker.image.prefix>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <java.version>1.8</java.version>
         <mysql.version>8.0.19</mysql.version>
+        <!--本工程使用spring-boot 2.3.2.RELEASE版本作为全局的spring-boot版本，对用spring5.X版本-->
         <spring-boot.version>2.3.2.RELEASE</spring-boot.version>
         <spring-cloud.version>Hoxton.SR6</spring-cloud.version>
     </properties>
@@ -37,6 +44,7 @@
         <name>Jarvis Corporation</name>
         <url>https://www.cecilia-marcus.cn/</url>
     </organization>
+    <!--整个pom只做版本管理-->
     <dependencyManagement>
         <dependencies>
             <!-- 增加Jackson的Hibernate类型支持 -->
@@ -67,6 +75,7 @@
                 <artifactId>joda-money</artifactId>
                 <version>1.0.1</version>
             </dependency>
+            <!--swagger-ui整合spring-boot-->
             <dependency>
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-boot-starter</artifactId>
@@ -119,12 +128,6 @@
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql.version}</version>
-                <!--<exclusions>
-                    <exclusion>
-                        <artifactId>protobuf-java</artifactId>
-                        <groupId>com.google.protobuf</groupId>
-                    </exclusion>
-                </exclusions>-->
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -135,6 +138,24 @@
                 <!--spring-boot打包工具-->
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <!-- docker插件 -->
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <configuration>
+                    <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
+                    <!--docker文件所在的目录-->
+                    <dockerDirectory>src/main/docker</dockerDirectory>
+                    <resources>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
+                </configuration>
             </plugin>
         </plugins>
     </build>

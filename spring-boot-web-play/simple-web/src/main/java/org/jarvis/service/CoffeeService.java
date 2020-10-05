@@ -6,6 +6,7 @@ import org.joda.money.Money;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -13,6 +14,7 @@ import java.util.List;
  * @author marcus
  * @date 2020/8/24-11:29
  */
+@Service
 public class CoffeeService {
     @Autowired
     private CoffeeRepository coffeeRepository;
