@@ -16,6 +16,11 @@
             <artifactId>cat-client</artifactId>
             <version>3.0.0</version>
         </dependency>
+        <!--<dependency>
+            <groupId>com.dianping.cat</groupId>
+            <artifactId>cat-core</artifactId>
+            <version>3.0.0</version>
+        </dependency>-->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
@@ -34,11 +39,6 @@
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
         <!--<dependency>
-            <groupId>com.dianping.cat</groupId>
-            <artifactId>cat-core</artifactId>
-            <version>3.0.0</version>
-        </dependency>-->
-        <!--<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webflux</artifactId>
         </dependency>-->
@@ -56,11 +56,15 @@
             <artifactId>commons-collections</artifactId>
             <version>3.2.2</version>
         </dependency>
-        <dependency>
-            <groupId>cn.yto.framework</groupId>
-            <artifactId>yto-cat-plugin</artifactId>
-            <version>2.3.4-SNAPSHOT</version>
-        </dependency>
     </dependencies>
+    <repositories>
+        <repository>
+            <id>unidal</id>
+            <url>http://unidal.org/nexus/content/repositories/releases/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+    </repositories>
 
 </project>

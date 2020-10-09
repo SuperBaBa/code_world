@@ -26,6 +26,9 @@
         <module>data-transfer-object-common</module>
         <!--大众点评监控平台central-application-tracking 集成-->
         <module>central-application-tracking-play</module>
+        <module>complete-demo</module>
+        <module>seckill-shop-dao</module>
+        <module>seckill-shop-web</module>
     </modules>
     <!--版本资源管理-->
     <properties>
@@ -180,32 +183,6 @@
     </profiles>
     <!--阿里云仓库-->
     <repositories>
-        <repository>
-            <id>spring-ali</id>
-            <url>https://maven.aliyun.com/repository/spring</url>
-            <releases>
-                <!--当 Maven 验证构件校验文件失败时该怎么做：ignore (忽略) ，fail (失败) ，或 warn (警告) -->
-                <checksumPolicy>fail</checksumPolicy>
-                <!--该元素指定更新发生的频率，Maven 会比较本地 POM 和远程 POM 的时间戳；always(一直)，daily(默认，每日)，interval：X (X 是以分钟为单位的时间间隔)，never（从不）-->
-                <updatePolicy>daily</updatePolicy>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>public-ali</id>
-            <url>https://maven.aliyun.com/repository/public</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-                <checksumPolicy>fail</checksumPolicy>
-            </snapshots>
-        </repository>
         <!-- Milestone的依赖不在主仓库里 -->
         <repository>
             <id>spring-milestone</id>
@@ -213,6 +190,9 @@
             <url>https://repo.spring.io/libs-milestone/</url>
             <layout>default</layout>
             <releases>
+                <!--当 Maven 验证构件校验文件失败时该怎么做：ignore (忽略) ，fail (失败) ，或 warn (警告) -->
+                <checksumPolicy>fail</checksumPolicy>
+                <!--该元素指定更新发生的频率，Maven 会比较本地 POM 和远程 POM 的时间戳；always(一直)，daily(默认，每日)，interval：X (X 是以分钟为单位的时间间隔)，never（从不）-->
                 <updatePolicy>always</updatePolicy>
                 <enabled>true</enabled>
             </releases>
@@ -220,6 +200,5 @@
                 <enabled>true</enabled>
             </snapshots>
         </repository>
-
     </repositories>
 </project>
