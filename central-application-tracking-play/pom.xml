@@ -56,11 +56,6 @@
             <artifactId>commons-collections</artifactId>
             <version>3.2.2</version>
         </dependency>
-        <dependency>
-            <groupId>cn.yto.framework</groupId>
-            <artifactId>yto-cat-plugin</artifactId>
-            <version>2.3.4-SNAPSHOT</version>
-        </dependency>
     </dependencies>
 
 </project>

@@ -78,7 +78,7 @@
             <timestampPattern>yyyy-MM-dd HH:mm:ss.SSS</timestampPattern>
             <timeZone>GMT+0:00</timeZone>
             <customFields>
-                {"captainWorkerNo":"01780486","captainName":"周玉龙","captainMobilePhone":"18702111752","captainEmail":"01780486@yto.net.cn","appId":"${projectname}","hostName":"${HOSTNAME}"}
+                {"appId":"${projectname}","hostName":"${HOSTNAME}"}
             </customFields>
             <enableContextMap>true</enableContextMap>
             <includeMdc>true</includeMdc>

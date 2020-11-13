@@ -26,6 +26,7 @@
         <module>data-transfer-object-common</module>
         <!--大众点评监控平台central-application-tracking 集成-->
         <module>central-application-tracking-play</module>
+        <module>sql-task</module>
     </modules>
     <!--版本资源管理-->
     <properties>

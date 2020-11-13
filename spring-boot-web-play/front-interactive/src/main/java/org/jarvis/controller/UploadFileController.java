@@ -1,6 +1,5 @@
 package org.jarvis.controller;
 
-import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 import org.jarvis.model.MultipartFileParam;
 import org.jarvis.model.Result;
 import org.jarvis.service.StorageService;
@@ -138,19 +137,19 @@ public class UploadFileController {
     @PostMapping(value = "/v2/large")
     @ResponseBody
     public Result<String> fileUpload(MultipartFileParam param, HttpServletRequest request) {
-        boolean isMultipart = ServletFileUpload.isMultipartContent(request);
-        String parentId = request.getParameter("parentId");
-        if (isMultipart) {
-            logger.info("上传文件start。");
-            try {
-                storageService.uploadFileRandomAccessFile(param);
-            } catch (IOException e) {
-                e.printStackTrace();
-                logger.error("文件上传失败。{}", param.toString());
-                return new Result<>("上传失败");
-            }
-            logger.info("上传文件end。");
-        }
+//        boolean isMultipart = ServletFileUpload.isMultipartContent(request);
+//        String parentId = request.getParameter("parentId");
+//        if (isMultipart) {
+//            logger.info("上传文件start。");
+//            try {
+//                storageService.uploadFileRandomAccessFile(param);
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//                logger.error("文件上传失败。{}", param.toString());
+//                return new Result<>("上传失败");
+//            }
+//            logger.info("上传文件end。");
+//        }
         return new Result<>("上传成功");
     }
 

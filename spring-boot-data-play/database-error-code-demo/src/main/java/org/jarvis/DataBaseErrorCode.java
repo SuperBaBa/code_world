@@ -31,11 +31,11 @@ public class DataBaseErrorCode implements CommandLineRunner {
     @Override
     public void run(String... args) {
         try {
-            jdbcTemplate.execute("INSERT INTO FOO (ID, BAR) VALUES (1, 'a')");
-            jdbcTemplate.execute("INSERT INTO FOO (ID, BAR) VALUES (1, 'b')");
-            List<Map<String, Object>> result = jdbcTemplate.queryForList("SELECT * FROM FOO");
+            //向内存数据库中添加两种水果，且ID一样，则会造成主键冲突
+            jdbcTemplate.execute("INSERT INTO GOODS (ID, GOODS_NAME) VALUES (1, 'banana')");
+            jdbcTemplate.execute("INSERT INTO GOODS (ID, GOODS_NAME) VALUES (1, 'durian')");
+            List<Map<String, Object>> result = jdbcTemplate.queryForList("SELECT * FROM GOODS");
             result.forEach(map -> log.info("{}", map));
-
         } catch (CustomizeDuplicatedKeyException e) {
             log.error("occur customized exception", e);
 

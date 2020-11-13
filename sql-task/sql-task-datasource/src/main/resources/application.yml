@@ -1,0 +1,65 @@
+db:
+  default:
+    #url: jdbc:mysql://localhost:3306/product_master?useSSL=false&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&autoReconnect=true
+    driver-class-name: com.mysql.jdbc.Driver
+    url-base: jdbc:mysql://
+    host: localhost
+    port: 3306
+    dbname: ljyun_share
+    url-other: ?useSSL=false&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&autoReconnect=true
+    username: common
+    password: common
+
+  #蓝景商城数据库
+  dbMall:
+    driver-class-name: com.mysql.jdbc.Driver
+    url-base: jdbc:mysql://
+    host: localhost
+    port: 3306
+    dbname: db_mall
+    url-other: ?useSSL=false&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&autoReconnect=true
+    username: common
+    password: common
+  #云平台私有库
+  privateDB:
+    driver-class-name: com.mysql.jdbc.Driver
+    url-base: jdbc:mysql://
+    host: localhost
+    port: 3306
+    dbname: ljyun_{id}_merchant
+    url-other: ?useSSL=false&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&autoReconnect=true
+    username: common
+    password: common
+
+
+first:
+  datasource:
+    url: jdbc:h2:mem:first
+    username: pjd
+    password:
+second:
+  datasource:
+    url:  jdbc:mysql://127.0.0.1:3306/sql?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&useSSL=false
+      username: root
+      password: root
+spring:
+  thymeleaf:
+    cache: false
+  profiles:
+    active: dev
+management:
+  endpoint:
+    prometheus:
+      enabled: true
+    metrics:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health,info,env,prometheus,metrics
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+server:
+  port: 8089

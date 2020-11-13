@@ -2,7 +2,7 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
 
 <beans>
-
+    <!--此处是H2内存数据库的错误代码定义-->
     <bean id="H2" class="org.springframework.jdbc.support.SQLErrorCodes">
         <property name="badSqlGrammarCodes">
             <value>42000,42001,42101,42102,42111,42112,42121,42122,42132</value>
@@ -19,7 +19,7 @@
         <property name="cannotAcquireLockCodes">
             <value>50200</value>
         </property>
-
+        <!--使用CustomSQLErrorCodesTranslation自定义错误代码为23001,23505的异常-->
         <property name="customTranslations">
             <bean class="org.springframework.jdbc.support.CustomSQLErrorCodesTranslation">
                 <property name="errorCodes" value="23001,23505"/>

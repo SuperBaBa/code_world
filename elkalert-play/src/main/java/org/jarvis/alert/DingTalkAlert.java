@@ -69,11 +69,11 @@ public class DingTalkAlert {
         request.setMsgtype("actionCard");
         OapiRobotSendRequest.Actioncard actioncard = new OapiRobotSendRequest.Actioncard();
         actioncard.setTitle("ELK日志中心告警");
-        actioncard.setSingleTitle("查看星图监控");
-        actioncard.setSingleURL("http://xt.yto.net.cn/monitor-pc-portal/index?source=PORTAL");
+        actioncard.setSingleTitle("查看监控");
+        actioncard.setSingleURL("http://baidu.com");
 
         actioncard.setBtnOrientation("0");
-        actioncard.setText(image+content.toString());
+        actioncard.setText(image + content.toString());
 
         request.setAt(at);
         request.setActionCard(actioncard);

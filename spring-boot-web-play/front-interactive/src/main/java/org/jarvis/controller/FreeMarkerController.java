@@ -29,7 +29,7 @@ public class FreeMarkerController {
         model.addAttribute("dateObj", new Date());
         model.addAttribute("bol", true);
         model.addAttribute("resource",resource);
-        return "index";
+        return "books";
     }
 
 }

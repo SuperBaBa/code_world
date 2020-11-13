@@ -1,15 +1,20 @@
 package org.jarvis;
 
+import io.micrometer.core.instrument.MeterRegistry;
 import lombok.extern.slf4j.Slf4j;
 import org.jarvis.aspectj.config.AspectJConfiguration;
 import org.jarvis.model.TestBean;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.actuate.autoconfigure.metrics.MeterRegistryCustomizer;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
  * @author marcus
@@ -17,6 +22,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 @SpringBootApplication
 @Slf4j
+@EnableScheduling
 public class SimpleWebApplicaiton implements ApplicationRunner {
 
     public static void main(String[] args) {
@@ -38,6 +44,11 @@ public class SimpleWebApplicaiton implements ApplicationRunner {
 
         bean = barContext.getBean("testBeanY", TestBean.class);
         bean.hello();
+    }
+
+    @Bean
+    MeterRegistryCustomizer<MeterRegistry> configurer(@Value("${spring.application.name}") String applicationName) {
+        return (registry) -> registry.config().commonTags("application", applicationName);
     }
 
 }

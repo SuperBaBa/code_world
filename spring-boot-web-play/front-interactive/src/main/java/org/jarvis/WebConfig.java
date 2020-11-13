@@ -27,12 +27,12 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         /*handler中是服务器虚拟路径，jsp访问的目录，location中是相对应的本地路径*/
-//        registry.addResourceHandler("/images/**")
-//                .addResourceLocations("classpath:/images/");
-//        registry.addResourceHandler("/html/**")
-//                .addResourceLocations("classpath:/html/");
-//        registry.addResourceHandler("/**")
-//                .addResourceLocations("classpath:/static/**");
+        registry.addResourceHandler("/images/**")
+                .addResourceLocations("classpath:/images/");
+        registry.addResourceHandler("/html/**")
+                .addResourceLocations("classpath:/html/");
+        registry.addResourceHandler("/**")
+                .addResourceLocations("classpath:/static/**");
     }
 
     @Override
