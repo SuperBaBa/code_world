@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
     <name>sql-task</name>
+    <version>0.0.1</version>
     <modules>
         <module>sql-task-scheduler</module>
         <module>sql-task-datasource</module>
