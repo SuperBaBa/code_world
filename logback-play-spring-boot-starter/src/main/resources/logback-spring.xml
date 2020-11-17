@@ -107,8 +107,8 @@
 
     <root level="INFO">
         <appender-ref ref="CONSOLE-WITH-COLOR"/>
-        <appender-ref ref="rollingFileASYNC"/>
-        <appender-ref ref="logstashASYNC"/>
+        <!--        <appender-ref ref="rollingFileASYNC"/>-->
+        <!--        <appender-ref ref="logstashASYNC"/>-->
     </root>
 
 </configuration>

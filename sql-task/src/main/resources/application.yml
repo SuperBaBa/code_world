@@ -5,9 +5,9 @@ first:
     password:
 second:
   datasource:
-    url:  jdbc:mysql://127.0.0.1:3306/sql?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&useSSL=false
-    username: root
-    password: root
+    url:  jdbc:mysql://127.0.1.1:3306/dev?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&useSSL=false
+    username: mysql
+    password: 666
 spring:
   thymeleaf:
     cache: false

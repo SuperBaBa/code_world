@@ -1,11 +1,14 @@
-package org.jarvis.sqltask.datasource.config;
+package org.jarvis.sqltask.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import lombok.extern.slf4j.Slf4j;
+import org.jarvis.sqltask.datasource.DynamicDataSource;
+import org.jarvis.sqltask.util.DynamicDataSourceContextHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.transaction.PlatformTransactionManager;
 
+import javax.sql.DataSource;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -40,7 +43,7 @@ public class SwitchDB {
             toYunDB(ljyunId);
         }
         //获取当前连接的数据源对象的key
-        String currentKey = DynamicDataSourceContextHolder.getDataSourceKey();
+        String currentKey = DynamicDataSourceContextHolder.getDataSourceLookupKey();
         log.info("＝＝＝＝＝当前连接的数据库是:" + currentKey);
         return currentKey;
     }
@@ -54,12 +57,12 @@ public class SwitchDB {
         //如果不指定数据库，则直接连接默认数据库
         String dbSourceKey = dbName.trim().isEmpty() ? "default" : dbName.trim();
         //获取当前连接的数据源对象的key
-        String currentKey = DynamicDataSourceContextHolder.getDataSourceKey();
+        String currentKey = DynamicDataSourceContextHolder.getDataSourceLookupKey();
         //如果当前数据库连接已经是想要的连接，则直接返回
         if (currentKey == dbSourceKey) return;
         //判断储存动态数据源实例的map中key值是否存在
-        if (DynamicDataSource.isExistDataSource(dbSourceKey)) {
-            DynamicDataSourceContextHolder.setDataSourceKey(dbSourceKey);
+        if (dynamicDataSource.isExistDataSource(dbSourceKey)) {
+            DynamicDataSourceContextHolder.setDataSourceLookupKey(dbSourceKey);
             log.info("＝＝＝＝＝普通库: " + dbName + ",切换完毕");
         } else {
             log.info("切换普通数据库时，数据源key=" + dbName + "不存在");
@@ -75,14 +78,14 @@ public class SwitchDB {
         //组合私有库数据源对象key
         String dbSourceKey = ljyunDataSourceKey + String.valueOf(ljyunId);
         //获取当前连接的数据源对象的key
-        String currentKey = DynamicDataSourceContextHolder.getDataSourceKey();
+        String currentKey = DynamicDataSourceContextHolder.getDataSourceLookupKey();
         if (dbSourceKey == currentKey) return;
 
         //创建私有库数据源
         createLjyunDataSource(ljyunId);
 
         //切换到当前数据源
-        DynamicDataSourceContextHolder.setDataSourceKey(dbSourceKey);
+        DynamicDataSourceContextHolder.setDataSourceLookupKey(dbSourceKey);
         log.info("＝＝＝＝＝私有库: " + ljyunId + ",切换完毕");
     }
 
@@ -111,9 +114,9 @@ public class SwitchDB {
         dataSource.setDriverClassName(evn.getProperty(prefix + "driver-class-name"));
 
         //将创建的数据源，新增到targetDataSources中
-        Map<Object, Object> map = new HashMap<>();
+        Map<String, DataSource> map = new HashMap<>();
         map.put(ljyunDataSourceKey + yunId, dataSource);
-        DynamicDataSource.getInstance().setTargetDataSources(map);
+        DynamicDataSource.getInstance().initDataSourceCollection(map);
         return dataSource;
     }
 }

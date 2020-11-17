@@ -9,8 +9,6 @@
     <packaging>pom</packaging>
     <version>1.0</version>
     <modules>
-        <!--spring-web项目-->
-        <module>spring-boot-web-play</module>
         <!--spring-data项目练习，使用了jpa的java持久化API-->
         <module>spring-boot-data-play</module>
         <module>spring-cloud-alibaba-play</module>
@@ -26,7 +24,6 @@
         <module>data-transfer-object-common</module>
         <!--大众点评监控平台central-application-tracking 集成-->
         <module>central-application-tracking-play</module>
-        <module>sql-task</module>
     </modules>
     <!--版本资源管理-->
     <properties>
